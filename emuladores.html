@@ -3,88 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Gaming - Emuladores</title>
+    <title>Emuladores PS1</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        html, body {
-            width: 100%; min-height: 100vh;
-            background: linear-gradient(145deg, #0f0f14, #1a1a20);
-            color: #e0ffff; overflow-x: hidden;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body {
+            background: #111827;
+            color: #e0ffff;
+            min-height: 100vh;
         }
-        .logo-pg {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
-            font-weight: bold; font-size: 1.1rem; border-radius: 6px;
+
+        header {
+            background: #1f2937;
+            border-bottom: 3px solid #22d3d1;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
         }
-        .barra-superior {
-            width: 100%; height: 65px; background: #1a1a20; border-bottom: 2px solid #40e0d0;
-            position: fixed; top: 0; left: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 15px;
+        .logo { color: #22d3d1; font-size: 1.3rem; font-weight: bold; }
+        .volver {
+            color: #22d3d1;
+            border: 2px solid #22d3d1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
         }
-        .logo-barra { display: flex; align-items: center; gap: 10px; color: #40e0d0; font-size: 1.2rem; font-weight: bold; }
-        .boton-volver {
-            background: transparent; border: 2px solid #40e0d0; color: #40e0d0; padding: 8px 16px; border-radius: 6px;
-            cursor: pointer; text-decoration: none; font-weight: bold; transition: 0.2s;
+        .volver:hover { background: #22d3d1; color: #111; }
+
+        main {
+            padding-top: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 50px;
         }
-        .boton-volver:hover { background: #40e0d0; color: #0f0f14; }
-        .contenido { padding: 100px 20px 50px; max-width: 1000px; margin: 0 auto; }
-        h1 { color: #40e0d0; text-align: center; margin-bottom: 40px; text-shadow: 0 0 10px rgba(64,224,208,.3); }
-        .descripcion { text-align: center; color: #b0ffff; font-size: 1.1rem; margin-bottom: 40px; }
-        .cuadricula { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 25px; }
-        
-        /* ✅ TARJETA CLICABLE (COMO BOTÓN) */
-        .tarjeta { 
-            background: #1e1e28; border: 1px solid #333; border-radius: 12px; padding: 30px; text-align: center; border-top: 3px solid #40e0d0; transition: 0.3s;
-            text-decoration: none; cursor: pointer; display: block;
+
+        h1 { color: #22d3d1; text-align:center; margin-bottom:30px; }
+        .descripcion { text-align:center; color:#cbd5e1; margin-bottom:40px; }
+
+        .tarjeta {
+            background: #1f2937;
+            border: 2px solid #374151;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom:25px;
+            border-top: 3px solid #22d3d1;
         }
-        .tarjeta:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(64,224,208,.3); background: #222b35; }
-        
-        .icono { font-size: 45px; margin-bottom: 15px; }
-        h3 { color: #fff; margin-bottom: 10px; }
-        p { color: #aaa; line-height: 1.5; }
-        .lista-ps1 { margin-top: 15px; text-align: left; color: #ccc; padding-left: 10px; }
-        .lista-ps1 li { margin: 8px 0; list-style: none; padding-left: 22px; position: relative; }
-        .lista-ps1 li::before { content: "✅"; position: absolute; left: 0; }
-        .pie { text-align: center; padding: 30px; color: #777; border-top: 1px solid #333; margin-top: 50px; }
+        .tarjeta h3 { color: #22d3d1; margin-bottom:15px; }
+        .tarjeta p, .tarjeta li { color:#cbd5e1; line-height:1.6; }
+        ul { padding-left:20px; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+            border-top: 1px solid #374151;
+        }
     </style>
 </head>
 <body>
-    <header class="barra-superior">
-        <div class="logo-barra"><span class="logo-pg">PG</span><span>Emuladores</span></div>
-        <a href="index.html" class="boton-volver">← Volver</a>
-    </header>
 
-    <main class="contenido">
-        <h1>🎮 Emuladores PlayStation 1</h1>
-        <p class="descripcion">Solo lo mejor y más estable para tu consola favorita 🎯👇</p>
+<header>
+    <div class="logo">💻 Emuladores PS1</div>
+    <a href="index.html" class="volver">← Volver</a>
+</header>
 
-        <div class="cuadricula">
-            <!-- ✅ TARJETA CLICABLE: LLEVA A DETALLES/DESCARGAS -->
-            <a href="ps1-detalles.html" class="tarjeta">
-                <div class="icono">🎮</div>
-                <h3>PlayStation 1 (PSX)</h3>
-                <p>Las versiones más usadas y seguras:</p>
-                <ul class="lista-ps1">
-                    <li>📌 Versión 1.6 - Clásica y ligera</li>
-                    <li>📌 Versión Actualizada - Mejor rendimiento</li>
-                    <li>📌 Versión Completa - Alta compatibilidad</li>
-                </ul>
-            </a>
+<main>
+    <h1>🎮 PlayStation 1 - Los Mejores Emuladores</h1>
+    <p class="descripcion">Solo versiones estables y probadas para tu PC 🚀</p>
 
-            <div class="tarjeta">
-                <div class="icono">📥</div>
-                <h3>Descargas y Guías</h3>
-                <p>Enlaces directos, sin virus + tutorial paso a paso para configurar controles y gráficos.</p>
-            </div>
+    <div class="tarjeta">
+        <h3>✅ Versiones Disponibles:</h3>
+        <ul>
+            <li>📌 ePSXe 1.6.0 - Clásico, ligero y muy usado</li>
+            <li>📌 ePSXe 2.0.5 - Más reciente, mejor compatibilidad</li>
+            <li>📌 RetroArch - Completo, funciones avanzadas</li>
+        </ul>
+    </div>
 
-            <div class="tarjeta">
-                <div class="icono">📅</div>
-                <h3>Próximamente</h3>
-                <p>Solo PS1 en esta fase. Más consolas se agregarán cuando esté todo perfecto.</p>
-            </div>
-        </div>
-    </main>
+    <div class="tarjeta">
+        <h3>📥 Descargas y Guías</h3>
+        <p>Enlaces seguros + pasos para configurar controles y gráficos sin complicaciones.</p>
+    </div>
+</main>
 
-    <footer class="pie">Portal Gaming © 2025 | Enfocados en PlayStation 1 🎮</footer>
+<footer>Portal Gaming © 2025 - Página de Emuladores</footer>
+
 </body>
-</html>
