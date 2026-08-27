@@ -10,38 +10,40 @@
             width: 100%; min-height: 100vh;
             background: linear-gradient(145deg, #0f0f14, #1a1a20);
             color: #e0ffff; overflow-x: hidden;
-            scroll-behavior: smooth; /* ✅ SALTO SUAVE */
+            scroll-behavior: smooth;
         }
 
-        /* 🎮 LOGO PG */
+        /* 🎮 LOGO PG - ALINEACIÓN CORREGIDA */
         .logo-pg {
             display: inline-flex; align-items: center; justify-content: center;
             width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
-            font-weight: bold; font-size: 1.1rem; border-radius: 6px; margin-right: 10px;
+            font-weight: bold; font-size: 1.1rem; border-radius: 6px;
         }
 
-        /* 🧭 BARRA SUPERIOR */
+        /* 🧭 BARRA SUPERIOR - ARREGLADO Y CENTRADO */
         .barra-cabecera {
             width: 100%; height: 65px;
             background: linear-gradient(90deg, #1a1a20, #222);
             border-bottom: 2px solid #40e0d0;
             position: fixed; top: 0; left: 0; z-index: 9999;
-            display: flex: flex; align-items: center; justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             padding: 0 15px;
         }
 
         .boton-hamburguesa {
             background: transparent; border: none;
             color: #40e0d0; font-size: 26px;
-            padding: 8px 12px; cursor: pointer; border-radius: 4px; transition: 0.2s;
+            padding: 8px 12px; cursor: pointer; border-radius: 4px;
+            transition: 0.2s; margin: 0;
         }
         .boton-hamburguesa:hover { background: rgba(64,224,208,.15); }
 
         .logo-barra {
-            display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 10px;
             color: #40e0d0; font-size: 1.2rem; font-weight: bold;
+            margin: 0; position: relative; top: 0;
         }
-        .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; }
+        .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; margin: 0; }
 
         /* 🕒 RELOJ */
         .reloj-fecha {
@@ -111,7 +113,7 @@
 
         /* 🖼️ INICIO */
         .contenido-imagen {
-            width: 100%; min-height: 60vh;
+            width: 100%; min-height: 50vh;
             background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('https://via.placeholder.com/1200x800/1a1a28/40e0d0?text=PORTAL+GAMING');
             background-size: cover; background-position: center; background-repeat: no-repeat;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -126,9 +128,46 @@
             max-width: 800px; line-height: 1.6; margin-bottom: 30px;
         }
 
-        /* 🖥️ SECCIÓN EMULADORES (CORREGIDA) */
+        /* 🎠 NUEVO: CARRUSEL PLAYSTATION 1 */
+        .seccion-carrusel {
+            background: #12121a; padding: 50px 20px; border-top: 1px solid #2a2a35; border-bottom: 1px solid #2a2a35;
+        }
+        .contenedor-carrusel {
+            max-width: 1100px; margin: 0 auto; text-align: center;
+        }
+        .titulo-carrusel {
+            color: #40e0d0; font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(64,224,208,.3);
+        }
+        .marco-carrusel {
+            overflow: hidden; border-radius: 12px; border: 2px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+        .pista-carrusel {
+            display: flex; width: 400%; animation: deslizar 16s infinite ease-in-out;
+        }
+        .imagen-slide {
+            width: 100%; flex-shrink: 0;
+            background-size: cover; background-position: center;
+            height: 280px; min-height: 200px;
+            display: flex; align-items: flex-end; justify-content: center;
+            padding: 20px;
+        }
+        .etiqueta-slide {
+            background: rgba(0,0,0,.65); padding: 10px 20px; border-radius: 6px;
+            color: #7fffd4; font-size: 1.1rem; font-weight: bold;
+        }
+        @keyframes deslizar {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-25%); }
+            50%, 70% { transform: translateX(-50%); }
+            75%, 95% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* 🖥️ SECCIÓN EMULADORES + TARJETA RENOMBRADA */
         .seccion-emuladores {
-            background: #15151d; padding: 50px 20px; border-top: 1px solid #2a2a35;
+            background: #15151d; padding: 50px 20px;
         }
         .contenedor-emuladores {
             max-width: 1000px; margin: 0 auto;
@@ -169,7 +208,7 @@
 </head>
 <body>
 
-    <!-- 🧭 BARRA SUPERIOR -->
+    <!-- 🧭 BARRA: LOGO Y LUPA PERFECTAMENTE ALINEADOS -->
     <header class="barra-cabecera">
         <button class="boton-hamburguesa" onclick="toggleMenu()">☰</button>
         <div class="logo-barra">
@@ -198,12 +237,11 @@
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
 
-    <!-- 📋 MENÚ LATERAL (ENLACE CORREGIDO) -->
+    <!-- 📋 MENÚ LATERAL -->
     <nav class="menu-lateral" id="menuPrincipal">
         <a href="#" class="activo" onclick="cerrarMenu()">🏠 Inicio</a>
         <a href="#" onclick="cerrarMenu()">🎮 Juegos</a>
         <a href="#" onclick="cerrarMenu()">📂 Categorías</a>
-        <!-- ✅ AL DAR CLIC: CIERRA MENÚ Y SALTA SUAVE -->
         <a href="#emuladores" onclick="cerrarMenu()">💻 Emuladores</a>
         <a href="#" onclick="cerrarMenu()">📝 Reportar Enlace</a>
     </nav>
@@ -216,34 +254,54 @@
         <h1 class="titulo-banner">Recordar Es Vivir Nuestra Infancia</h1>
         <p class="texto-bienvenida">
             Bienvenido a <strong>Portal Gaming</strong> 🎮✨<br>
-            Elige una categoría o conoce nuestros emuladores para jugar sin límites.
+            Revive la magia de PlayStation 1 y más.
         </p>
     </main>
 
-    <!-- 🖥️ SECCIÓN EMULADORES (CORREGIDA Y COMPLETA) -->
+    <!-- 🎠 NUEVO CARRUSEL AUTOMÁTICO PS1 -->
+    <section class="seccion-carrusel">
+        <div class="contenedor-carrusel">
+            <h2 class="titulo-carrusel">🎮 Magia de PlayStation 1</h2>
+            <div class="marco-carrusel">
+                <div class="pista-carrusel">
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/222/40e0d0?text=CLASICOS+PS1');">
+                        <div class="etiqueta-slide">Los Grandes Clásicos</div>
+                    </div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/1a1a28/7fffd4?text=AVENTURAS+INOLVIDABLES');">
+                        <div class="etiqueta-slide">Aventuras Inolvidables</div>
+                    </div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/14141f/40e0d0?text=MEJOR+CALIDAD+RETRO');">
+                        <div class="etiqueta-slide">La Mejor Calidad Retro</div>
+                    </div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/181822/7fffd4?text=JUEGOS+DE+LEYENDA');">
+                        <div class="etiqueta-slide">Juegos de Leyenda</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🖥️ SECCIÓN EMULADORES (NOMBRE CAMBIADO) -->
     <section id="emuladores" class="seccion-emuladores">
         <div class="contenedor-emuladores">
             <h2 class="titulo-seccion">💻 Nuestros Emuladores</h2>
             <p class="descripcion-seccion">
-                Todo lo que necesitas para revivir tus consolas favoritas en un solo lugar 🎮⚙️<br>
-                Espacio listo para agregar tus plataformas y enlaces.
+                Todo lo que necesitas para jugar tus consolas favoritas 🎮⚙️
             </p>
             <div class="cuadricula-emuladores">
-                <!-- Tarjeta 1 -->
                 <div class="tarjeta-emulador">
                     <div class="icono-emulador">🎰</div>
                     <h3 class="nombre-emulador">Consolas Clásicas</h3>
                     <p class="info-emulador">PS1, SNES, GBA y más sistemas retro.</p>
                 </div>
-                <!-- Tarjeta 2 -->
-                <div class="tarjeta-emulador">
-                    <div class="icono-emulador">💾</div>
-                    <h3 class="nombre-emulador">Fácil Configuración</h3>
-                    <p class="info-emulador">Guías y emuladores listos para descargar.</p>
-                </div>
-                <!-- Tarjeta 3 -->
+                <!-- ✅ TARJETA RENOMBRADA -->
                 <div class="tarjeta-emulador">
                     <div class="icono-emulador">📥</div>
+                    <h3 class="nombre-emulador">Descargas y Guías</h3>
+                    <p class="info-emulador">Enlaces seguros + pasos fáciles de instalación.</p>
+                </div>
+                <div class="tarjeta-emulador">
+                    <div class="icono-emulador">📅</div>
                     <h3 class="nombre-emulador">Próximamente</h3>
                     <p class="info-emulador">Más plataformas y actualizaciones pronto.</p>
                 </div>
@@ -257,21 +315,16 @@
         Todo el contenido con cariño para ti ❤️
     </footer>
 
-    <!-- ⚙️ SCRIPTS (MEJORADOS) -->
+    <!-- ⚙️ SCRIPTS -->
     <script>
-        // Abrir/Cerrar menú
         function toggleMenu() {
             document.getElementById("menuPrincipal").classList.toggle("abierto");
             document.getElementById("fondoCierre").classList.toggle("activo");
         }
-
-        // ✅ FUNCIÓN: Cerrar menú al hacer clic en enlace
         function cerrarMenu() {
             document.getElementById("menuPrincipal").classList.remove("abierto");
             document.getElementById("fondoCierre").classList.remove("activo");
         }
-
-        // 🕒 RELOJ DINÁMICO
         function actualizarReloj() {
             const ahora = new Date();
             const opciones = {
