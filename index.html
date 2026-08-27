@@ -10,7 +10,7 @@
             width: 100%; min-height: 100vh;
             background: linear-gradient(145deg, #0f0f14, #1a1a20);
             color: #e0ffff; overflow-x: hidden;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* ✅ SALTO SUAVE */
         }
 
         /* 🎮 LOGO PG */
@@ -26,7 +26,7 @@
             background: linear-gradient(90deg, #1a1a20, #222);
             border-bottom: 2px solid #40e0d0;
             position: fixed; top: 0; left: 0; z-index: 9999;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex: flex; align-items: center; justify-content: space-between;
             padding: 0 15px;
         }
 
@@ -126,7 +126,7 @@
             max-width: 800px; line-height: 1.6; margin-bottom: 30px;
         }
 
-        /* 🖥️ SECCIÓN EMULADORES (NUEVA) */
+        /* 🖥️ SECCIÓN EMULADORES (CORREGIDA) */
         .seccion-emuladores {
             background: #15151d; padding: 50px 20px; border-top: 1px solid #2a2a35;
         }
@@ -198,13 +198,14 @@
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
 
-    <!-- 📋 MENÚ LATERAL -->
+    <!-- 📋 MENÚ LATERAL (ENLACE CORREGIDO) -->
     <nav class="menu-lateral" id="menuPrincipal">
-        <a href="#" class="activo">🏠 Inicio</a>
-        <a href="#">🎮 Juegos</a>
-        <a href="#">📂 Categorías</a>
-        <a href="#emuladores">💻 Emuladores</a>
-        <a href="#">📝 Reportar Enlace</a>
+        <a href="#" class="activo" onclick="cerrarMenu()">🏠 Inicio</a>
+        <a href="#" onclick="cerrarMenu()">🎮 Juegos</a>
+        <a href="#" onclick="cerrarMenu()">📂 Categorías</a>
+        <!-- ✅ AL DAR CLIC: CIERRA MENÚ Y SALTA SUAVE -->
+        <a href="#emuladores" onclick="cerrarMenu()">💻 Emuladores</a>
+        <a href="#" onclick="cerrarMenu()">📝 Reportar Enlace</a>
     </nav>
 
     <!-- 🌑 FONDO CIERRE -->
@@ -219,7 +220,7 @@
         </p>
     </main>
 
-    <!-- 🖥️ SECCIÓN EMULADORES (¡LISTA!) -->
+    <!-- 🖥️ SECCIÓN EMULADORES (CORREGIDA Y COMPLETA) -->
     <section id="emuladores" class="seccion-emuladores">
         <div class="contenedor-emuladores">
             <h2 class="titulo-seccion">💻 Nuestros Emuladores</h2>
@@ -228,22 +229,23 @@
                 Espacio listo para agregar tus plataformas y enlaces.
             </p>
             <div class="cuadricula-emuladores">
-                <!-- Tarjeta ejemplo 1 -->
+                <!-- Tarjeta 1 -->
                 <div class="tarjeta-emulador">
                     <div class="icono-emulador">🎰</div>
                     <h3 class="nombre-emulador">Consolas Clásicas</h3>
-                    <p class="info-emulador">PS1, SNES, GBA y más.</p>
+                    <p class="info-emulador">PS1, SNES, GBA y más sistemas retro.</p>
                 </div>
-                <!-- Tarjeta ejemplo 2 -->
+                <!-- Tarjeta 2 -->
                 <div class="tarjeta-emulador">
                     <div class="icono-emulador">💾</div>
-                    <h3 class="nombre-emulador">Emuladores Compatibles</h3>
-                    <p class="info-emulador">Fáciles de usar y configurar.</p>
+                    <h3 class="nombre-emulador">Fácil Configuración</h3>
+                    <p class="info-emulador">Guías y emuladores listos para descargar.</p>
                 </div>
-                <!-- Tarjeta ejemplo 3 -->
-                <div class="icono-emulador">📥</div>
+                <!-- Tarjeta 3 -->
+                <div class="tarjeta-emulador">
+                    <div class="icono-emulador">📥</div>
                     <h3 class="nombre-emulador">Próximamente</h3>
-                    <p class="info-emulador">Más sistemas pronto.</p>
+                    <p class="info-emulador">Más plataformas y actualizaciones pronto.</p>
                 </div>
             </div>
         </div>
@@ -255,14 +257,21 @@
         Todo el contenido con cariño para ti ❤️
     </footer>
 
-    <!-- ⚙️ SCRIPTS -->
+    <!-- ⚙️ SCRIPTS (MEJORADOS) -->
     <script>
+        // Abrir/Cerrar menú
         function toggleMenu() {
             document.getElementById("menuPrincipal").classList.toggle("abierto");
             document.getElementById("fondoCierre").classList.toggle("activo");
         }
 
-        // 🕒 RELOJ
+        // ✅ FUNCIÓN: Cerrar menú al hacer clic en enlace
+        function cerrarMenu() {
+            document.getElementById("menuPrincipal").classList.remove("abierto");
+            document.getElementById("fondoCierre").classList.remove("activo");
+        }
+
+        // 🕒 RELOJ DINÁMICO
         function actualizarReloj() {
             const ahora = new Date();
             const opciones = {
