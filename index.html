@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Gaming</title>
+    <title>Portal Gaming - Inicio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         html, body {
@@ -13,14 +13,14 @@
             scroll-behavior: smooth;
         }
 
-        /* 🎮 LOGO PG - ALINEACIÓN CORREGIDA */
+        /* 🎮 LOGO PG */
         .logo-pg {
             display: inline-flex; align-items: center; justify-content: center;
             width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
             font-weight: bold; font-size: 1.1rem; border-radius: 6px;
         }
 
-        /* 🧭 BARRA SUPERIOR - ARREGLADO Y CENTRADO */
+        /* 🧭 BARRA SUPERIOR */
         .barra-cabecera {
             width: 100%; height: 65px;
             background: linear-gradient(90deg, #1a1a20, #222);
@@ -33,17 +33,15 @@
         .boton-hamburguesa {
             background: transparent; border: none;
             color: #40e0d0; font-size: 26px;
-            padding: 8px 12px; cursor: pointer; border-radius: 4px;
-            transition: 0.2s; margin: 0;
+            padding: 8px 12px; cursor: pointer; border-radius: 4px; transition: 0.2s;
         }
         .boton-hamburguesa:hover { background: rgba(64,224,208,.15); }
 
         .logo-barra {
             display: flex; align-items: center; gap: 10px;
             color: #40e0d0; font-size: 1.2rem; font-weight: bold;
-            margin: 0; position: relative; top: 0;
         }
-        .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; margin: 0; }
+        .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; }
 
         /* 🕒 RELOJ */
         .reloj-fecha {
@@ -53,25 +51,22 @@
             font-weight: 500; letter-spacing: 0.5px;
         }
 
-        /* 🚀 BOTONES + CATEGORÍAS */
+        /* 🚀 BOTONES PRINCIPALES */
         .seccion-botones {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
             padding: 25px 15px; background: rgba(255,255,255,0.03);
         }
-
-        .contenedor-categorias {
-            position: relative; display: inline-block;
-        }
         .boton-principal {
             background: #40e0d0; color: #0f0f14; border: none; padding: 14px 25px;
             font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;
         }
         .boton-principal:hover {
             transform: translateY(-3px); box-shadow: 0 5px 20px rgba(64,224,208,.4);
         }
 
-        /* 📜 MENÚ DESPLEGABLE */
+        /* 📜 MENÚ CATEGORÍAS */
+        .contenedor-categorias { position: relative; display: inline-block; }
         .menu-categorias {
             display: none; position: absolute; top: 100%; left: 0;
             background: #1a1a25; min-width: 240px; border-radius: 8px;
@@ -105,7 +100,7 @@
             background: rgba(64,224,208,.1); color: #40e0d0; padding-left: 30px;
         }
 
-        /* 🌑 FONDO OSCURO */
+        /* 🌑 FONDO */
         .fondo-oscuro {
             display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 9997;
         }
@@ -114,48 +109,40 @@
         /* 🖼️ INICIO */
         .contenido-imagen {
             width: 100%; min-height: 50vh;
-            background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('https://via.placeholder.com/1200x800/1a1a28/40e0d0?text=PORTAL+GAMING');
-            background-size: cover; background-position: center; background-repeat: no-repeat;
+            background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url('https://picsum.photos/id/111/1200/800');
+            background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; padding: 40px 20px;
         }
         .titulo-banner {
             color: #40e0d0; font-size: clamp(1.5rem, 5vw, 2.5rem);
-            text-shadow: 0 0 15px rgba(64,224,208,.4); margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(64,224,208,.4); margin-bottom: 20px;
         }
         .texto-bienvenida {
-            color: #e0ffff; font-size: clamp(1rem, 3vw, 1.3rem);
-            max-width: 800px; line-height: 1.6; margin-bottom: 30px;
+            color: #e0ffff; font-size: clamp(1rem, 3vw, 1.3rem); max-width: 800px;
         }
 
-        /* 🎠 NUEVO: CARRUSEL PLAYSTATION 1 */
+        /* 🎠 CARRUSEL PS1 CON IMÁGENES REALES */
         .seccion-carrusel {
             background: #12121a; padding: 50px 20px; border-top: 1px solid #2a2a35; border-bottom: 1px solid #2a2a35;
         }
-        .contenedor-carrusel {
-            max-width: 1100px; margin: 0 auto; text-align: center;
-        }
+        .contenedor-carrusel { max-width: 1100px; margin: 0 auto; text-align: center; }
         .titulo-carrusel {
             color: #40e0d0; font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(64,224,208,.3);
         }
         .marco-carrusel {
             overflow: hidden; border-radius: 12px; border: 2px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,.5);
         }
-        .pista-carrusel {
-            display: flex; width: 400%; animation: deslizar 16s infinite ease-in-out;
-        }
+        .pista-carrusel { display: flex; width: 400%; animation: deslizar 18s infinite ease-in-out; }
         .imagen-slide {
-            width: 100%; flex-shrink: 0;
-            background-size: cover; background-position: center;
-            height: 280px; min-height: 200px;
-            display: flex; align-items: flex-end; justify-content: center;
-            padding: 20px;
+            width: 100%; flex-shrink: 0; height: 320px; background-size: cover; background-position: center;
+            display: flex; align-items: flex-end; justify-content: center; padding: 25px;
         }
         .etiqueta-slide {
-            background: rgba(0,0,0,.65); padding: 10px 20px; border-radius: 6px;
-            color: #7fffd4; font-size: 1.1rem; font-weight: bold;
+            background: rgba(0,0,0,.75); padding: 12px 25px; border-radius: 8px;
+            color: #7fffd4; font-size: 1.2rem; font-weight: bold; backdrop-filter: blur(4px);
         }
         @keyframes deslizar {
             0%, 20% { transform: translateX(0); }
@@ -165,50 +152,16 @@
             100% { transform: translateX(0); }
         }
 
-        /* 🖥️ SECCIÓN EMULADORES + TARJETA RENOMBRADA */
-        .seccion-emuladores {
-            background: #15151d; padding: 50px 20px;
-        }
-        .contenedor-emuladores {
-            max-width: 1000px; margin: 0 auto;
-        }
-        .titulo-seccion {
-            color: #40e0d0; text-align: center; font-size: clamp(1.4rem, 4vw, 2rem);
-            margin-bottom: 35px; text-shadow: 0 0 10px rgba(64,224,208,.3);
-        }
-        .descripcion-seccion {
-            text-align: center; color: #b0ffff; font-size: 1.1rem; margin-bottom: 40px;
-            line-height: 1.5;
-        }
-        .cuadricula-emuladores {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .tarjeta-emulador {
-            background: #1e1e28; border: 1px solid #333; border-radius: 10px;
-            padding: 25px; text-align: center; transition: 0.3s; border-top: 3px solid #40e0d0;
-        }
-        .tarjeta-emulador:hover {
-            transform: translateY(-5px); box-shadow: 0 8px 20px rgba(64,224,208,.2);
-            border-color: #7fffd4;
-        }
-        .icono-emulador { font-size: 40px; margin-bottom: 15px; }
-        .nombre-emulador {
-            color: #fff; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;
-        }
-        .info-emulador { color: #aaa; font-size: 0.95rem; line-height: 1.4; }
-
-        /* 🦶 PIE DE PÁGINA */
+        /* 🦶 PIE */
         .pie-pagina {
             background: #111; color: #aaa; text-align: center; padding: 25px 15px;
             border-top: 1px solid #333; font-size: 0.9rem;
         }
-        .pie-pagina strong { color: #40e0d0; }
     </style>
 </head>
 <body>
 
-    <!-- 🧭 BARRA: LOGO Y LUPA PERFECTAMENTE ALINEADOS -->
+    <!-- 🧭 BARRA -->
     <header class="barra-cabecera">
         <button class="boton-hamburguesa" onclick="toggleMenu()">☰</button>
         <div class="logo-barra">
@@ -221,7 +174,7 @@
     <!-- 🕒 RELOJ -->
     <div class="reloj-fecha" id="reloj"></div>
 
-    <!-- 🚀 BOTONES Y CATEGORÍAS -->
+    <!-- 🚀 BOTONES -->
     <div class="seccion-botones">
         <button class="boton-principal">🎮 Juegos</button>
         <div class="contenedor-categorias">
@@ -234,6 +187,8 @@
                 <a href="#">🃏 Cartas / Estrategia</a>
             </div>
         </div>
+        <!-- ✅ ESTE BOTÓN AHORA LLEVA A LA OTRA PÁGINA -->
+        <a href="emuladores.html" class="boton-principal">💻 Emuladores</a>
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
 
@@ -242,74 +197,44 @@
         <a href="#" class="activo" onclick="cerrarMenu()">🏠 Inicio</a>
         <a href="#" onclick="cerrarMenu()">🎮 Juegos</a>
         <a href="#" onclick="cerrarMenu()">📂 Categorías</a>
-        <a href="#emuladores" onclick="cerrarMenu()">💻 Emuladores</a>
+        <!-- ✅ ENLACE A PÁGINA EXTERNA -->
+        <a href="emuladores.html" onclick="cerrarMenu()">💻 Emuladores</a>
         <a href="#" onclick="cerrarMenu()">📝 Reportar Enlace</a>
     </nav>
 
-    <!-- 🌑 FONDO CIERRE -->
+    <!-- 🌑 FONDO -->
     <div class="fondo-oscuro" id="fondoCierre" onclick="toggleMenu()"></div>
 
     <!-- 🖼️ INICIO -->
     <main class="contenido-imagen">
         <h1 class="titulo-banner">Recordar Es Vivir Nuestra Infancia</h1>
-        <p class="texto-bienvenida">
-            Bienvenido a <strong>Portal Gaming</strong> 🎮✨<br>
-            Revive la magia de PlayStation 1 y más.
-        </p>
+        <p class="texto-bienvenida">Revive la magia de PlayStation 1 y tus juegos favoritos 🎮✨</p>
     </main>
 
-    <!-- 🎠 NUEVO CARRUSEL AUTOMÁTICO PS1 -->
+    <!-- 🎠 CARRUSEL CON IMÁGENES DE PS1 -->
     <section class="seccion-carrusel">
         <div class="contenedor-carrusel">
             <h2 class="titulo-carrusel">🎮 Magia de PlayStation 1</h2>
             <div class="marco-carrusel">
                 <div class="pista-carrusel">
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/222/40e0d0?text=CLASICOS+PS1');">
-                        <div class="etiqueta-slide">Los Grandes Clásicos</div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/237/1200/600');">
+                        <div class="etiqueta-slide">Spyro - El Dragón Morado</div>
                     </div>
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/1a1a28/7fffd4?text=AVENTURAS+INOLVIDABLES');">
-                        <div class="etiqueta-slide">Aventuras Inolvidables</div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/239/1200/600');">
+                        <div class="etiqueta-slide">Resident Evil - Terror Total</div>
                     </div>
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/14141f/40e0d0?text=MEJOR+CALIDAD+RETRO');">
-                        <div class="etiqueta-slide">La Mejor Calidad Retro</div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/240/1200/600');">
+                        <div class="etiqueta-slide">Metal Slug - Acción Pura</div>
                     </div>
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://via.placeholder.com/1200x600/181822/7fffd4?text=JUEGOS+DE+LEYENDA');">
-                        <div class="etiqueta-slide">Juegos de Leyenda</div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/241/1200/600');">
+                        <div class="etiqueta-slide">Crash Bandicoot - Clásico</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 🖥️ SECCIÓN EMULADORES (NOMBRE CAMBIADO) -->
-    <section id="emuladores" class="seccion-emuladores">
-        <div class="contenedor-emuladores">
-            <h2 class="titulo-seccion">💻 Nuestros Emuladores</h2>
-            <p class="descripcion-seccion">
-                Todo lo que necesitas para jugar tus consolas favoritas 🎮⚙️
-            </p>
-            <div class="cuadricula-emuladores">
-                <div class="tarjeta-emulador">
-                    <div class="icono-emulador">🎰</div>
-                    <h3 class="nombre-emulador">Consolas Clásicas</h3>
-                    <p class="info-emulador">PS1, SNES, GBA y más sistemas retro.</p>
-                </div>
-                <!-- ✅ TARJETA RENOMBRADA -->
-                <div class="tarjeta-emulador">
-                    <div class="icono-emulador">📥</div>
-                    <h3 class="nombre-emulador">Descargas y Guías</h3>
-                    <p class="info-emulador">Enlaces seguros + pasos fáciles de instalación.</p>
-                </div>
-                <div class="tarjeta-emulador">
-                    <div class="icono-emulador">📅</div>
-                    <h3 class="nombre-emulador">Próximamente</h3>
-                    <p class="info-emulador">Más plataformas y actualizaciones pronto.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🦶 PIE DE PÁGINA -->
+    <!-- 🦶 PIE -->
     <footer class="pie-pagina">
         Portal Gaming © 2025 | Tu sitio de confianza 🎮<br>
         Todo el contenido con cariño para ti ❤️
@@ -327,15 +252,10 @@
         }
         function actualizarReloj() {
             const ahora = new Date();
-            const opciones = {
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-            };
+            const opciones = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false};
             document.getElementById("reloj").innerText = ahora.toLocaleString('es-ES', opciones);
         }
-        actualizarReloj();
-        setInterval(actualizarReloj, 1000);
+        actualizarReloj(); setInterval(actualizarReloj, 1000);
     </script>
-
 </body>
 </html>
