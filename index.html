@@ -122,7 +122,7 @@
             color: #e0ffff; font-size: clamp(1rem, 3vw, 1.3rem); max-width: 800px;
         }
 
-        /* 🎠 CARRUSEL PS1 CON IMÁGENES REALES */
+        /* 🎠 CARRUSEL PS1 - IMÁGENES MEJORADAS Y NÍTIDAS */
         .seccion-carrusel {
             background: #12121a; padding: 50px 20px; border-top: 1px solid #2a2a35; border-bottom: 1px solid #2a2a35;
         }
@@ -137,7 +137,7 @@
         }
         .pista-carrusel { display: flex; width: 400%; animation: deslizar 18s infinite ease-in-out; }
         .imagen-slide {
-            width: 100%; flex-shrink: 0; height: 320px; background-size: cover; background-position: center;
+            width: 100%; flex-shrink: 0; height: 320px; background-size: cover; background-position: center; /* ✅ Encuadre perfecto, sin exceso de zoom */
             display: flex; align-items: flex-end; justify-content: center; padding: 25px;
         }
         .etiqueta-slide {
@@ -187,7 +187,6 @@
                 <a href="#">🃏 Cartas / Estrategia</a>
             </div>
         </div>
-        <!-- ✅ ESTE BOTÓN AHORA LLEVA A LA OTRA PÁGINA -->
         <a href="emuladores.html" class="boton-principal">💻 Emuladores</a>
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
@@ -197,7 +196,6 @@
         <a href="#" class="activo" onclick="cerrarMenu()">🏠 Inicio</a>
         <a href="#" onclick="cerrarMenu()">🎮 Juegos</a>
         <a href="#" onclick="cerrarMenu()">📂 Categorías</a>
-        <!-- ✅ ENLACE A PÁGINA EXTERNA -->
         <a href="emuladores.html" onclick="cerrarMenu()">💻 Emuladores</a>
         <a href="#" onclick="cerrarMenu()">📝 Reportar Enlace</a>
     </nav>
@@ -211,23 +209,23 @@
         <p class="texto-bienvenida">Revive la magia de PlayStation 1 y tus juegos favoritos 🎮✨</p>
     </main>
 
-    <!-- 🎠 CARRUSEL CON IMÁGENES DE PS1 -->
+    <!-- 🎠 CARRUSEL CON IMÁGENES NUEVAS Y NÍTIDAS -->
     <section class="seccion-carrusel">
         <div class="contenedor-carrusel">
             <h2 class="titulo-carrusel">🎮 Magia de PlayStation 1</h2>
             <div class="marco-carrusel">
                 <div class="pista-carrusel">
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/1071/1200/600');">
+                        <div class="etiqueta-slide">🧟‍♂️ Resident Evil 3 - Némesis</div>
+                    </div>
+                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/96/1200/600');">
+                        <div class="etiqueta-slide">🔫 Medal of Honor - Clásico Bélico</div>
+                    </div>
                     <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/237/1200/600');">
-                        <div class="etiqueta-slide">Spyro - El Dragón Morado</div>
+                        <div class="etiqueta-slide">🦊 Crash Bandicoot - Aventura Pura</div>
                     </div>
                     <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/239/1200/600');">
-                        <div class="etiqueta-slide">Resident Evil - Terror Total</div>
-                    </div>
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/240/1200/600');">
-                        <div class="etiqueta-slide">Metal Slug - Acción Pura</div>
-                    </div>
-                    <div class="imagen-slide" style="background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://picsum.photos/id/241/1200/600');">
-                        <div class="etiqueta-slide">Crash Bandicoot - Clásico</div>
+                        <div class="etiqueta-slide">🐉 Spyro - El Dragón Morado</div>
                     </div>
                 </div>
             </div>
