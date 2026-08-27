@@ -31,14 +31,20 @@
         h1 { color: #40e0d0; text-align: center; margin-bottom: 40px; text-shadow: 0 0 10px rgba(64,224,208,.3); }
         .descripcion { text-align: center; color: #b0ffff; font-size: 1.1rem; margin-bottom: 40px; }
         .cuadricula { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 25px; }
-        .tarjeta { background: #1e1e28; border: 1px solid #333; border-radius: 12px; padding: 30px; text-align: center; border-top: 3px solid #40e0d0; transition: 0.3s; }
-        .tarjeta:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(64,224,208,.2); }
+        
+        /* ✅ TARJETA CLICABLE (COMO BOTÓN) */
+        .tarjeta { 
+            background: #1e1e28; border: 1px solid #333; border-radius: 12px; padding: 30px; text-align: center; border-top: 3px solid #40e0d0; transition: 0.3s;
+            text-decoration: none; cursor: pointer; display: block;
+        }
+        .tarjeta:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(64,224,208,.3); background: #222b35; }
+        
         .icono { font-size: 45px; margin-bottom: 15px; }
         h3 { color: #fff; margin-bottom: 10px; }
         p { color: #aaa; line-height: 1.5; }
-        .lista-emuladores { margin-top: 15px; text-align: left; color: #ccc; padding-left: 15px; }
-        .lista-emuladores li { margin: 5px 0; list-style: none; padding-left: 20px; position: relative; }
-        .lista-emuladores li::before { content: "✅"; position: absolute; left: 0; }
+        .lista-ps1 { margin-top: 15px; text-align: left; color: #ccc; padding-left: 10px; }
+        .lista-ps1 li { margin: 8px 0; list-style: none; padding-left: 22px; position: relative; }
+        .lista-ps1 li::before { content: "✅"; position: absolute; left: 0; }
         .pie { text-align: center; padding: 30px; color: #777; border-top: 1px solid #333; margin-top: 50px; }
     </style>
 </head>
@@ -49,40 +55,36 @@
     </header>
 
     <main class="contenido">
-        <h1>💻 Nuestros Emuladores</h1>
-        <p class="descripcion">Los más usados, estables y fáciles para revivir tus consolas favoritas 🎮⚙️</p>
+        <h1>🎮 Emuladores PlayStation 1</h1>
+        <p class="descripcion">Solo lo mejor y más estable para tu consola favorita 🎯👇</p>
 
         <div class="cuadricula">
-            <!-- 🔹 CONSOLAS CLÁSICAS - CON LA LISTA QUE PEDISTE -->
-            <div class="tarjeta">
-                <div class="icono">🎰</div>
-                <h3>Consolas Clásicas</h3>
-                <p>Los emuladores más populares y confiables:</p>
-                <ul class="lista-emuladores">
-                    <li>🎮 PlayStation 1 (PSX) - Estable y completo</li>
-                    <li>🕹️ Super Nintendo (SNES) - Ligero y rápido</li>
-                    <li>📱 Game Boy Advance (GBA) - Alta compatibilidad</li>
-                    <li>🎯 SEGA Genesis / Mega Drive - Calidad gráfica</li>
-                    <li>🎰 Arcade / RetroComún - Multijuegos</li>
+            <!-- ✅ TARJETA CLICABLE: LLEVA A DETALLES/DESCARGAS -->
+            <a href="ps1-detalles.html" class="tarjeta">
+                <div class="icono">🎮</div>
+                <h3>PlayStation 1 (PSX)</h3>
+                <p>Las versiones más usadas y seguras:</p>
+                <ul class="lista-ps1">
+                    <li>📌 Versión 1.6 - Clásica y ligera</li>
+                    <li>📌 Versión Actualizada - Mejor rendimiento</li>
+                    <li>📌 Versión Completa - Alta compatibilidad</li>
                 </ul>
-            </div>
+            </a>
 
-            <!-- 🔹 DESCARGAS Y GUÍAS -->
             <div class="tarjeta">
                 <div class="icono">📥</div>
                 <h3>Descargas y Guías</h3>
-                <p>Enlaces seguros + pasos sencillos para instalar sin errores, configurar controles y mejorar gráficos.</p>
+                <p>Enlaces directos, sin virus + tutorial paso a paso para configurar controles y gráficos.</p>
             </div>
 
-            <!-- 🔹 PRÓXIMAMENTE -->
             <div class="tarjeta">
                 <div class="icono">📅</div>
                 <h3>Próximamente</h3>
-                <p>Más plataformas: PlayStation 2, Nintendo 64 y actualizaciones de rendimiento.</p>
+                <p>Solo PS1 en esta fase. Más consolas se agregarán cuando esté todo perfecto.</p>
             </div>
         </div>
     </main>
 
-    <footer class="pie">Portal Gaming © 2025 | Todo con cariño ❤️</footer>
+    <footer class="pie">Portal Gaming © 2025 | Enfocados en PlayStation 1 🎮</footer>
 </body>
 </html>
