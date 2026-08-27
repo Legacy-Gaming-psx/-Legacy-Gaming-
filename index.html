@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Gaming</title> <!-- ✅ Nombre corregido -->
+    <title>Portal Gaming</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         html, body {
             width: 100%; min-height: 100vh;
             background: linear-gradient(145deg, #0f0f14, #1a1a20);
             color: #e0ffff; overflow-x: hidden;
+        }
+
+        /* 🎮 LOGO PERSONALIZADO PG */
+        .logo-pg {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
+            font-weight: bold; font-size: 1.1rem; border-radius: 6px; margin-right: 10px;
         }
 
         /* 🧭 BARRA SUPERIOR */
@@ -25,8 +32,7 @@
         .boton-hamburguesa {
             background: transparent; border: none;
             color: #40e0d0; font-size: 26px;
-            padding: 8px 12px; cursor: pointer;
-            border-radius: 4px; transition: 0.2s;
+            padding: 8px 12px; cursor: pointer; border-radius: 4px; transition: 0.2s;
         }
         .boton-hamburguesa:hover { background: rgba(64,224,208,.15); }
 
@@ -34,13 +40,12 @@
             display: flex; align-items: center; gap: 8px;
             color: #40e0d0; font-size: 1.2rem; font-weight: bold;
         }
-        .logo-ps { font-size: 28px; }
         .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; }
 
-        /* 🕒 ESTILO PARA LA FECHA Y HORA */
+        /* 🕒 RELOJ Y FECHA */
         .reloj-fecha {
             text-align: center; color: #40e0d0; font-size: 0.9rem;
-            padding: 8px 15px; background: rgba(0,0,0,0.2);
+            padding: 10px 15px; background: rgba(0,0,0,0.25);
             border-bottom: 1px solid #2a2a35; margin-top: 65px;
             font-weight: 500; letter-spacing: 0.5px;
         }
@@ -56,8 +61,7 @@
         .menu-lateral a {
             display: block; padding: 16px 25px;
             color: #e0ffff; text-decoration: none; font-size: 1.1rem;
-            border-bottom: 1px solid rgba(64,224,208,.15);
-            transition: 0.2s;
+            border-bottom: 1px solid rgba(64,224,208,.15); transition: 0.2s;
         }
         .menu-lateral a:hover, .menu-lateral a.activo {
             background: rgba(64,224,208,.1); color: #40e0d0; padding-left: 30px;
@@ -65,45 +69,70 @@
 
         /* 🌑 FONDO OSCURO */
         .fondo-oscuro {
-            display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
-            z-index: 9997;
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 9997;
         }
         .fondo-oscuro.activo { display: block; }
 
-        /* 🖼️ CONTENIDO PRINCIPAL (INICIO) */
+        /* 🚀 SECCIÓN BOTONES (DEBAJO DEL RELOJ) */
+        .seccion-botones {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
+            padding: 25px 15px; background: rgba(255,255,255,0.03);
+        }
+        .boton-principal {
+            background: #40e0d0; color: #0f0f14; border: none; padding: 14px 25px;
+            font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .boton-principal:hover {
+            transform: translateY(-3px); box-shadow: 0 5px 20px rgba(64,224,208,.4);
+        }
+
+        /* 🖼️ CONTENIDO PRINCIPAL */
         .contenido-imagen {
-            width: 100%; min-height: calc(100vh - 110px);
-            background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://via.placeholder.com/1200x800/1a1a28/40e0d0?text=PORTAL+GAMING');
+            width: 100%; min-height: 55vh;
+            background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('https://via.placeholder.com/1200x800/1a1a28/40e0d0?text=PORTAL+GAMING');
             background-size: cover; background-position: center; background-repeat: no-repeat;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 30px 20px;
+            text-align: center; padding: 40px 20px;
         }
         .titulo-banner {
             color: #40e0d0; font-size: clamp(1.5rem, 5vw, 2.5rem);
-            text-shadow: 0 0 15px rgba(64,224,208,.4);
-            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(64,224,208,.4); margin-bottom: 25px;
         }
         .texto-bienvenida {
             color: #e0ffff; font-size: clamp(1rem, 3vw, 1.3rem);
-            max-width: 800px; line-height: 1.6;
-            margin-bottom: 30px;
+            max-width: 800px; line-height: 1.6; margin-bottom: 30px;
         }
+
+        /* 🦶 PIE DE PÁGINA */
+        .pie-pagina {
+            background: #111; color: #aaa; text-align: center; padding: 25px 15px;
+            border-top: 1px solid #333; font-size: 0.9rem;
+        }
+        .pie-pagina strong { color: #40e0d0; }
     </style>
 </head>
 <body>
 
-    <!-- 🧭 BARRA SUPERIOR -->
+    <!-- 🧭 BARRA SUPERIOR CON LOGO PG -->
     <header class="barra-cabecera">
         <button class="boton-hamburguesa" onclick="toggleMenu()">☰</button>
         <div class="logo-barra">
-            <span class="logo-ps">🎮</span>
-            <span>Portal Gaming</span> <!-- ✅ NOMBRE CORREGIDO -->
+            <span class="logo-pg">PG</span> <!-- ✅ NUEVO LOGO -->
+            <span>Portal Gaming</span>
         </div>
         <span class="icono-buscar">🔍</span>
     </header>
 
-    <!-- 🕒 RELOJ Y FECHA DINÁMICA -->
+    <!-- 🕒 RELOJ -->
     <div class="reloj-fecha" id="reloj"></div>
+
+    <!-- 🚀 BOTONES PRINCIPALES (Espacio aprovechado) -->
+    <div class="seccion-botones">
+        <button class="boton-principal">🎮 Juegos</button>
+        <button class="boton-principal">📂 Categorías</button>
+        <button class="boton-principal">ℹ️ Nosotros</button>
+    </div>
 
     <!-- 📋 MENÚ LATERAL -->
     <nav class="menu-lateral" id="menuPrincipal">
@@ -113,45 +142,40 @@
         <a href="#">📝 Reportar Enlace</a>
     </nav>
 
-    <!-- 🌑 FONDO PARA CERRAR MENÚ -->
+    <!-- 🌑 FONDO CIERRE -->
     <div class="fondo-oscuro" id="fondoCierre" onclick="toggleMenu()"></div>
 
-    <!-- 🖼️ SECCIÓN INICIO (AQUÍ TRABAJAMOS) -->
+    <!-- 🖼️ CONTENIDO CENTRAL -->
     <main class="contenido-imagen">
         <h1 class="titulo-banner">Recordar Es Vivir Nuestra Infancia</h1>
-
-        <!-- ✅ AQUÍ AÑADIMOS MÁS TEXTO O BOTONES -->
         <p class="texto-bienvenida">
-            🎮 Bienvenido a tu lugar favorito para revivir los mejores juegos de siempre.<br>
-            Aquí encontrarás diversión, nostalgia y todo lo que buscas en un solo sitio. 🚀
+            Bienvenido a <strong>Portal Gaming</strong>, tu lugar para revivir los mejores juegos 🎮✨
         </p>
     </main>
 
-    <!-- ⚙️ SCRIPT: MENÚ + RELOJ AUTOMÁTICO -->
+    <!-- 🦶 PIE DE PÁGINA (Espacio inferior completo) -->
+    <footer class="pie-pagina">
+        Portal Gaming © 2025 | Tu sitio de confianza 🎮<br>
+        Todo el contenido con cariño para ti ❤️
+    </footer>
+
+    <!-- ⚙️ SCRIPTS: Menú + Reloj -->
     <script>
-        // Menú lateral
         function toggleMenu() {
             document.getElementById("menuPrincipal").classList.toggle("abierto");
             document.getElementById("fondoCierre").classList.toggle("activo");
         }
 
-        // 🕒 RELOJ Y FECHA EN TIEMPO REAL (ESPAÑOL)
         function actualizarReloj() {
             const ahora = new Date();
             const opciones = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
             };
             document.getElementById("reloj").innerText = ahora.toLocaleString('es-ES', opciones);
         }
         actualizarReloj();
-        setInterval(actualizarReloj, 1000); // Se actualiza cada segundo
+        setInterval(actualizarReloj, 1000);
     </script>
 
 </body>
