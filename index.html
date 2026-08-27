@@ -12,7 +12,7 @@
             color: #e0ffff; overflow-x: hidden;
         }
 
-        /* 🎮 LOGO PERSONALIZADO PG */
+        /* 🎮 LOGO PG */
         .logo-pg {
             display: inline-flex; align-items: center; justify-content: center;
             width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
@@ -42,12 +42,51 @@
         }
         .icono-buscar { color: #40e0d0; font-size: 22px; cursor: pointer; }
 
-        /* 🕒 RELOJ Y FECHA */
+        /* 🕒 RELOJ */
         .reloj-fecha {
             text-align: center; color: #40e0d0; font-size: 0.9rem;
             padding: 10px 15px; background: rgba(0,0,0,0.25);
             border-bottom: 1px solid #2a2a35; margin-top: 65px;
             font-weight: 500; letter-spacing: 0.5px;
+        }
+
+        /* 🚀 BOTONES + MENÚ CATEGORÍAS */
+        .seccion-botones {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
+            padding: 25px 15px; background: rgba(255,255,255,0.03);
+        }
+
+        .contenedor-categorias {
+            position: relative; display: inline-block;
+        }
+        .boton-principal {
+            background: #40e0d0; color: #0f0f14; border: none; padding: 14px 25px;
+            font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .boton-principal:hover {
+            transform: translateY(-3px); box-shadow: 0 5px 20px rgba(64,224,208,.4);
+        }
+
+        /* 📜 MENÚ DESPLEGABLE AJUSTADO */
+        .menu-categorias {
+            display: none; position: absolute; top: 100%; left: 0;
+            background: #1a1a25; min-width: 240px; border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.4); z-index: 100; margin-top: 8px;
+            border: 1px solid #40e0d0;
+        }
+        .contenedor-categorias:hover .menu-categorias,
+        .contenedor-categorias:focus-within .menu-categorias {
+            display: block;
+        }
+        .menu-categorias a {
+            color: #e0ffff; padding: 15px 22px; text-decoration: none;
+            display: block; border-bottom: 1px solid #252535; transition: 0.2s;
+            font-size: 1rem;
+        }
+        .menu-categorias a:last-child { border-bottom: none; border-radius: 8px; }
+        .menu-categorias a:hover {
+            background: rgba(64,224,208,.15); color: #40e0d0; padding-left: 28px;
         }
 
         /* 📋 MENÚ LATERAL */
@@ -72,20 +111,6 @@
             display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 9997;
         }
         .fondo-oscuro.activo { display: block; }
-
-        /* 🚀 SECCIÓN BOTONES (DEBAJO DEL RELOJ) */
-        .seccion-botones {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
-            padding: 25px 15px; background: rgba(255,255,255,0.03);
-        }
-        .boton-principal {
-            background: #40e0d0; color: #0f0f14; border: none; padding: 14px 25px;
-            font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .boton-principal:hover {
-            transform: translateY(-3px); box-shadow: 0 5px 20px rgba(64,224,208,.4);
-        }
 
         /* 🖼️ CONTENIDO PRINCIPAL */
         .contenido-imagen {
@@ -114,11 +139,11 @@
 </head>
 <body>
 
-    <!-- 🧭 BARRA SUPERIOR CON LOGO PG -->
+    <!-- 🧭 BARRA SUPERIOR CON LOGO -->
     <header class="barra-cabecera">
         <button class="boton-hamburguesa" onclick="toggleMenu()">☰</button>
         <div class="logo-barra">
-            <span class="logo-pg">PG</span> <!-- ✅ NUEVO LOGO -->
+            <span class="logo-pg">PG</span>
             <span>Portal Gaming</span>
         </div>
         <span class="icono-buscar">🔍</span>
@@ -127,10 +152,21 @@
     <!-- 🕒 RELOJ -->
     <div class="reloj-fecha" id="reloj"></div>
 
-    <!-- 🚀 BOTONES PRINCIPALES (Espacio aprovechado) -->
+    <!-- 🚀 BOTONES + MENÚ CATEGORÍAS ORDENADO -->
     <div class="seccion-botones">
         <button class="boton-principal">🎮 Juegos</button>
-        <button class="boton-principal">📂 Categorías</button>
+
+        <div class="contenedor-categorias">
+            <button class="boton-principal">📂 Categorías ▾</button>
+            <div class="menu-categorias">
+                <a href="#">🏃‍♂️ Aventura / Plataformas</a>
+                <a href="#">⚔️ Acción / Disparos</a>
+                <a href="#">👻 Terror / Supervivencia</a>
+                <a href="#">🏎️ Deportes / Carreras</a>
+                <a href="#">🃏 Cartas / Estrategia</a>
+            </div>
+        </div>
+
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
 
@@ -138,6 +174,7 @@
     <nav class="menu-lateral" id="menuPrincipal">
         <a href="#" class="activo">🏠 Inicio</a>
         <a href="#">🎮 Juegos</a>
+        <a href="#">📂 Categorías</a>
         <a href="#">💻 Emuladores</a>
         <a href="#">📝 Reportar Enlace</a>
     </nav>
@@ -149,23 +186,25 @@
     <main class="contenido-imagen">
         <h1 class="titulo-banner">Recordar Es Vivir Nuestra Infancia</h1>
         <p class="texto-bienvenida">
-            Bienvenido a <strong>Portal Gaming</strong>, tu lugar para revivir los mejores juegos 🎮✨
+            Bienvenido a <strong>Portal Gaming</strong> 🎮✨<br>
+            Elige una categoría y encuentra tus juegos favoritos.
         </p>
     </main>
 
-    <!-- 🦶 PIE DE PÁGINA (Espacio inferior completo) -->
+    <!-- 🦶 PIE DE PÁGINA -->
     <footer class="pie-pagina">
         Portal Gaming © 2025 | Tu sitio de confianza 🎮<br>
         Todo el contenido con cariño para ti ❤️
     </footer>
 
-    <!-- ⚙️ SCRIPTS: Menú + Reloj -->
+    <!-- ⚙️ SCRIPTS -->
     <script>
         function toggleMenu() {
             document.getElementById("menuPrincipal").classList.toggle("abierto");
             document.getElementById("fondoCierre").classList.toggle("activo");
         }
 
+        // 🕒 RELOJ DINÁMICO
         function actualizarReloj() {
             const ahora = new Date();
             const opciones = {
