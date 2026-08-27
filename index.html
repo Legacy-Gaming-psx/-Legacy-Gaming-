@@ -10,6 +10,7 @@
             width: 100%; min-height: 100vh;
             background: linear-gradient(145deg, #0f0f14, #1a1a20);
             color: #e0ffff; overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* 🎮 LOGO PG */
@@ -50,7 +51,7 @@
             font-weight: 500; letter-spacing: 0.5px;
         }
 
-        /* 🚀 BOTONES + MENÚ CATEGORÍAS */
+        /* 🚀 BOTONES + CATEGORÍAS */
         .seccion-botones {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
             padding: 25px 15px; background: rgba(255,255,255,0.03);
@@ -68,21 +69,17 @@
             transform: translateY(-3px); box-shadow: 0 5px 20px rgba(64,224,208,.4);
         }
 
-        /* 📜 MENÚ DESPLEGABLE AJUSTADO */
+        /* 📜 MENÚ DESPLEGABLE */
         .menu-categorias {
             display: none; position: absolute; top: 100%; left: 0;
             background: #1a1a25; min-width: 240px; border-radius: 8px;
             box-shadow: 0 8px 25px rgba(0,0,0,.4); z-index: 100; margin-top: 8px;
             border: 1px solid #40e0d0;
         }
-        .contenedor-categorias:hover .menu-categorias,
-        .contenedor-categorias:focus-within .menu-categorias {
-            display: block;
-        }
+        .contenedor-categorias:hover .menu-categorias { display: block; }
         .menu-categorias a {
             color: #e0ffff; padding: 15px 22px; text-decoration: none;
             display: block; border-bottom: 1px solid #252535; transition: 0.2s;
-            font-size: 1rem;
         }
         .menu-categorias a:last-child { border-bottom: none; border-radius: 8px; }
         .menu-categorias a:hover {
@@ -112,9 +109,9 @@
         }
         .fondo-oscuro.activo { display: block; }
 
-        /* 🖼️ CONTENIDO PRINCIPAL */
+        /* 🖼️ INICIO */
         .contenido-imagen {
-            width: 100%; min-height: 55vh;
+            width: 100%; min-height: 60vh;
             background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('https://via.placeholder.com/1200x800/1a1a28/40e0d0?text=PORTAL+GAMING');
             background-size: cover; background-position: center; background-repeat: no-repeat;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -129,6 +126,39 @@
             max-width: 800px; line-height: 1.6; margin-bottom: 30px;
         }
 
+        /* 🖥️ SECCIÓN EMULADORES (NUEVA) */
+        .seccion-emuladores {
+            background: #15151d; padding: 50px 20px; border-top: 1px solid #2a2a35;
+        }
+        .contenedor-emuladores {
+            max-width: 1000px; margin: 0 auto;
+        }
+        .titulo-seccion {
+            color: #40e0d0; text-align: center; font-size: clamp(1.4rem, 4vw, 2rem);
+            margin-bottom: 35px; text-shadow: 0 0 10px rgba(64,224,208,.3);
+        }
+        .descripcion-seccion {
+            text-align: center; color: #b0ffff; font-size: 1.1rem; margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        .cuadricula-emuladores {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .tarjeta-emulador {
+            background: #1e1e28; border: 1px solid #333; border-radius: 10px;
+            padding: 25px; text-align: center; transition: 0.3s; border-top: 3px solid #40e0d0;
+        }
+        .tarjeta-emulador:hover {
+            transform: translateY(-5px); box-shadow: 0 8px 20px rgba(64,224,208,.2);
+            border-color: #7fffd4;
+        }
+        .icono-emulador { font-size: 40px; margin-bottom: 15px; }
+        .nombre-emulador {
+            color: #fff; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;
+        }
+        .info-emulador { color: #aaa; font-size: 0.95rem; line-height: 1.4; }
+
         /* 🦶 PIE DE PÁGINA */
         .pie-pagina {
             background: #111; color: #aaa; text-align: center; padding: 25px 15px;
@@ -139,7 +169,7 @@
 </head>
 <body>
 
-    <!-- 🧭 BARRA SUPERIOR CON LOGO -->
+    <!-- 🧭 BARRA SUPERIOR -->
     <header class="barra-cabecera">
         <button class="boton-hamburguesa" onclick="toggleMenu()">☰</button>
         <div class="logo-barra">
@@ -152,10 +182,9 @@
     <!-- 🕒 RELOJ -->
     <div class="reloj-fecha" id="reloj"></div>
 
-    <!-- 🚀 BOTONES + MENÚ CATEGORÍAS ORDENADO -->
+    <!-- 🚀 BOTONES Y CATEGORÍAS -->
     <div class="seccion-botones">
         <button class="boton-principal">🎮 Juegos</button>
-
         <div class="contenedor-categorias">
             <button class="boton-principal">📂 Categorías ▾</button>
             <div class="menu-categorias">
@@ -166,7 +195,6 @@
                 <a href="#">🃏 Cartas / Estrategia</a>
             </div>
         </div>
-
         <button class="boton-principal">ℹ️ Nosotros</button>
     </div>
 
@@ -175,21 +203,51 @@
         <a href="#" class="activo">🏠 Inicio</a>
         <a href="#">🎮 Juegos</a>
         <a href="#">📂 Categorías</a>
-        <a href="#">💻 Emuladores</a>
+        <a href="#emuladores">💻 Emuladores</a>
         <a href="#">📝 Reportar Enlace</a>
     </nav>
 
     <!-- 🌑 FONDO CIERRE -->
     <div class="fondo-oscuro" id="fondoCierre" onclick="toggleMenu()"></div>
 
-    <!-- 🖼️ CONTENIDO CENTRAL -->
+    <!-- 🖼️ INICIO -->
     <main class="contenido-imagen">
         <h1 class="titulo-banner">Recordar Es Vivir Nuestra Infancia</h1>
         <p class="texto-bienvenida">
             Bienvenido a <strong>Portal Gaming</strong> 🎮✨<br>
-            Elige una categoría y encuentra tus juegos favoritos.
+            Elige una categoría o conoce nuestros emuladores para jugar sin límites.
         </p>
     </main>
+
+    <!-- 🖥️ SECCIÓN EMULADORES (¡LISTA!) -->
+    <section id="emuladores" class="seccion-emuladores">
+        <div class="contenedor-emuladores">
+            <h2 class="titulo-seccion">💻 Nuestros Emuladores</h2>
+            <p class="descripcion-seccion">
+                Todo lo que necesitas para revivir tus consolas favoritas en un solo lugar 🎮⚙️<br>
+                Espacio listo para agregar tus plataformas y enlaces.
+            </p>
+            <div class="cuadricula-emuladores">
+                <!-- Tarjeta ejemplo 1 -->
+                <div class="tarjeta-emulador">
+                    <div class="icono-emulador">🎰</div>
+                    <h3 class="nombre-emulador">Consolas Clásicas</h3>
+                    <p class="info-emulador">PS1, SNES, GBA y más.</p>
+                </div>
+                <!-- Tarjeta ejemplo 2 -->
+                <div class="tarjeta-emulador">
+                    <div class="icono-emulador">💾</div>
+                    <h3 class="nombre-emulador">Emuladores Compatibles</h3>
+                    <p class="info-emulador">Fáciles de usar y configurar.</p>
+                </div>
+                <!-- Tarjeta ejemplo 3 -->
+                <div class="icono-emulador">📥</div>
+                    <h3 class="nombre-emulador">Próximamente</h3>
+                    <p class="info-emulador">Más sistemas pronto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 🦶 PIE DE PÁGINA -->
     <footer class="pie-pagina">
@@ -204,7 +262,7 @@
             document.getElementById("fondoCierre").classList.toggle("activo");
         }
 
-        // 🕒 RELOJ DINÁMICO
+        // 🕒 RELOJ
         function actualizarReloj() {
             const ahora = new Date();
             const opciones = {
