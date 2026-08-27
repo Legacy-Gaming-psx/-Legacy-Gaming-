@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Gaming - Emuladores</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: linear-gradient(145deg, #0f0f14, #1a1a20);
+            color: #e0ffff; overflow-x: hidden;
+        }
+        .logo-pg {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; background: #40e0d0; color: #0f0f14;
+            font-weight: bold; font-size: 1.1rem; border-radius: 6px;
+        }
+        .barra-superior {
+            width: 100%; height: 65px; background: #1a1a20; border-bottom: 2px solid #40e0d0;
+            position: fixed; top: 0; left: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between;
+            padding: 0 15px;
+        }
+        .logo-barra { display: flex; align-items: center; gap: 10px; color: #40e0d0; font-size: 1.2rem; font-weight: bold; }
+        .boton-volver {
+            background: transparent; border: 2px solid #40e0d0; color: #40e0d0; padding: 8px 16px; border-radius: 6px;
+            cursor: pointer; text-decoration: none; font-weight: bold; transition: 0.2s;
+        }
+        .boton-volver:hover { background: #40e0d0; color: #0f0f14; }
+        .contenido { padding: 100px 20px 50px; max-width: 1000px; margin: 0 auto; }
+        h1 { color: #40e0d0; text-align: center; margin-bottom: 40px; text-shadow: 0 0 10px rgba(64,224,208,.3); }
+        .descripcion { text-align: center; color: #b0ffff; font-size: 1.1rem; margin-bottom: 40px; }
+        .cuadricula { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 25px; }
+        .tarjeta { background: #1e1e28; border: 1px solid #333; border-radius: 12px; padding: 30px; text-align: center; border-top: 3px solid #40e0d0; transition: 0.3s; }
+        .tarjeta:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(64,224,208,.2); }
+        .icono { font-size: 45px; margin-bottom: 15px; }
+        h3 { color: #fff; margin-bottom: 10px; }
+        p { color: #aaa; line-height: 1.5; }
+        .pie { text-align: center; padding: 30px; color: #777; border-top: 1px solid #333; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <header class="barra-superior">
+        <div class="logo-barra"><span class="logo-pg">PG</span><span>Emuladores</span></div>
+        <a href="index.html" class="boton-volver">← Volver</a>
+    </header>
+
+    <main class="contenido">
+        <h1>💻 Nuestros Emuladores</h1>
+        <p class="descripcion">Todo lo necesario para jugar tus consolas favoritas en PC 🎮⚙️</p>
+
+        <div class="cuadricula">
+            <div class="tarjeta"><div class="icono">🎰</div><h3>Consolas Clásicas</h3><p>PS1, SNES, GBA y más sistemas retro.</p></div>
+            <div class="tarjeta"><div class="icono">📥</div><h3>Descargas y Guías</h3><p>Enlaces seguros + pasos fáciles de instalación.</p></div>
+            <div class="tarjeta"><div class="icono">📅</div><h3>Próximamente</h3><p>Más plataformas y actualizaciones pronto.</p></div>
+        </div>
+    </main>
+
+    <footer class="pie">Portal Gaming © 2025 | Página de Emuladores</footer>
+</body>
+</html>
