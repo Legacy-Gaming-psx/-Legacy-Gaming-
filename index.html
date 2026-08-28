@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legacy Gaming - PS1 Edition</title>
     <style>
-        /* Estilos Retro / PS1 */
         body {
             background-color: #121212;
             color: #E0E0E0;
@@ -16,7 +15,7 @@
 
         header {
             background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
-            border-bottom: 3px solid #00439c; /* Azul PlayStation */
+            border-bottom: 3px solid #00439c;
             padding: 20px;
             text-align: center;
         }
@@ -42,6 +41,9 @@
             gap: 15px;
             padding: 10px;
             border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
@@ -61,7 +63,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 30px auto;
             padding: 0 20px;
         }
@@ -71,11 +73,12 @@
             padding-left: 10px;
             font-size: 1.5rem;
             margin-bottom: 20px;
+            margin-top: 40px;
         }
 
-        .grid-emulators {
+        .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
@@ -86,11 +89,25 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card h3 {
             margin-top: 0;
             color: #0070d1;
+        }
+
+        .game-badge {
+            background: #00439c;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .btn-launch {
@@ -103,6 +120,7 @@
             font-weight: bold;
             border-radius: 5px;
             border: 1px solid #0070d1;
+            transition: background 0.2s;
         }
 
         .btn-launch:hover {
@@ -135,34 +153,75 @@
     </header>
 
     <nav>
-        <a href="#ps1">PlayStation 1</a>
-        <a href="#proximamente">Próximos Emuladores</a>
+        <a href="#emulador">Emulador</a>
+        <a href="#juegos">Catálogo PS1</a>
+        <a href="#proximamente">Próximamente</a>
     </nav>
 
     <div class="container">
         
-        <div id="ps1">
+        <div id="emulador">
             <h2 class="section-title">Emulador Principal</h2>
-            <div class="grid-emulators">
+            <div class="grid-cards">
                 <div class="card">
-                    <h3>DuckStation / PS1</h3>
-                    <p>Accede al emulador de PlayStation 1 para revivir los clásicos de 32 bits.</p>
+                    <div>
+                        <h3>DuckStation / PS1</h3>
+                        <p>Motor de emulación para ejecutar títulos de PlayStation 1 en alta definición.</p>
+                    </div>
                     <a href="#" class="btn-launch">Cargar Emulador</a>
                 </div>
             </div>
         </div>
 
-        <div id="proximamente" style="margin-top: 40px;">
-            <h2 class="section-title">Futuras Incorporaciones</h2>
-            <div class="grid-emulators">
+        <div id="juegos">
+            <h2 class="section-title">Juegos Destacados de PS1</h2>
+            <div class="grid-cards">
+                
                 <div class="card">
-                    <h3>Game Boy Advance</h3>
-                    <p>Próximamente catálogo de juegos portátiles de Nintendo.</p>
+                    <div>
+                        <span class="game-badge">PS1</span>
+                        <h3>Crash Bandicoot</h3>
+                        <p>Plataformas clásico de Naughty Dog. Revive la aventura en la isla N. Sanity.</p>
+                    </div>
+                    <a href="#" class="btn-launch">Jugar / Cargar</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <span class="game-badge">PS1</span>
+                        <h3>Resident Evil 2</h3>
+                        <p>Survival horror imprescindible en Raccoon City junto a Leon y Claire.</p>
+                    </div>
+                    <a href="#" class="btn-launch">Jugar / Cargar</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <span class="game-badge">PS1</span>
+                        <h3>Tekken 3</h3>
+                        <p>El rey de la lucha en 32 bits con el torneo del Rey del Puño de Hierro.</p>
+                    </div>
+                    <a href="#" class="btn-launch">Jugar / Cargar</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="proximamente">
+            <h2 class="section-title">Futuras Incorporaciones</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <div>
+                        <h3>Game Boy Advance</h3>
+                        <p>Próximamente catálogo de juegos portátiles de Nintendo.</p>
+                    </div>
                     <span class="badge-coming-soon">En desarrollo...</span>
                 </div>
                 <div class="card">
-                    <h3>Otros Sistemas</h3>
-                    <p>Próximamente más consolas clásicas.</p>
+                    <div>
+                        <h3>Otros Sistemas</h3>
+                        <p>Próximamente más consolas clásicas.</p>
+                    </div>
                     <span class="badge-coming-soon">En desarrollo...</span>
                 </div>
             </div>
