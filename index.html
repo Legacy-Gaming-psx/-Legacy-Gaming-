@@ -13,16 +13,18 @@
             padding: 0;
         }
 
+        /* Encabezado */
         header {
             background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
             border-bottom: 3px solid #00439c;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             letter-spacing: 3px;
             color: #fff;
             text-shadow: 2px 2px #00439c;
@@ -31,37 +33,67 @@
         header p {
             margin-top: 5px;
             color: #a0a0a0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
+        /* Botón Menú Hamburguesa */
+        .menu-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #2a2a2a;
+            border: 1px solid #0070d1;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-toggle:hover {
+            background: #00439c;
+        }
+
+        /* Menú Desplegable */
         nav {
             background-color: #000;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px;
             border-bottom: 1px solid #333;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Clase interactiva que activa el JS al hacer clic */
+        nav.open {
+            max-height: 300px;
+            padding: 10px 0;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 4px;
-            background: #2a2a2a;
-            border: 1px solid #444;
+            padding: 10px 20px;
+            width: 80%;
+            text-align: center;
+            border-bottom: 1px solid #222;
             transition: all 0.2s ease;
+        }
+
+        nav a:last-child {
+            border-bottom: none;
         }
 
         nav a:hover {
             background: #00439c;
-            border-color: #0070d1;
+            color: #fff;
         }
 
+        /* Estructura general */
         .container {
             max-width: 950px;
             margin: 30px auto;
@@ -127,14 +159,6 @@
             background-color: #0070d1;
         }
 
-        .badge-coming-soon {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #888;
-            font-style: italic;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -150,80 +174,84 @@
     <header>
         <h1>LEGACY GAMING</h1>
         <p>Tu rincón digital de emulación y nostalgia</p>
+        <!-- Botón de Menú Hamburguesa -->
+        <button class="menu-toggle" id="menuBtn">☰</button>
     </header>
 
-    <nav>
-        <a href="#emulador">Emulador</a>
-        <a href="#juegos">Catálogo PS1</a>
-        <a href="#proximamente">Próximamente</a>
+    <!-- Navegación Desplegable -->
+    <nav id="navMenu">
+        <a href="#inicio">Inicio</a>
+        <a href="#emuladores">Emuladores</a>
+        <a href="#isos">ISOs</a>
+        <a href="#bios">BIOS</a>
+        <a href="#reportar">Reportar Enlaces</a>
     </nav>
 
     <div class="container">
         
-        <div id="emulador">
-            <h2 class="section-title">Emulador Principal</h2>
+        <!-- INICIO / INVENTARIO BASE -->
+        <div id="inicio">
+            <h2 class="section-title">Bienvenido a Legacy Gaming</h2>
+            <p>Selecciona una opción desde el menú superior para navegar por las distintas secciones de emulación.</p>
+        </div>
+
+        <!-- SECCIÓN DE EMULADORES -->
+        <div id="emuladores">
+            <h2 class="section-title">Emuladores</h2>
             <div class="grid-cards">
                 <div class="card">
                     <div>
                         <h3>DuckStation / PS1</h3>
-                        <p>Motor de emulación para ejecutar títulos de PlayStation 1 en alta definición.</p>
+                        <p>Motor de emulación para ejecutar títulos de PlayStation 1.</p>
                     </div>
                     <a href="#" class="btn-launch">Cargar Emulador</a>
                 </div>
             </div>
         </div>
 
-        <div id="juegos">
-            <h2 class="section-title">Juegos Destacados de PS1</h2>
+        <!-- SECCIÓN DE ISOS / JUEGOS -->
+        <div id="isos">
+            <h2 class="section-title">ISOs / Catálogo de Juegos</h2>
             <div class="grid-cards">
-                
                 <div class="card">
                     <div>
                         <span class="game-badge">PS1</span>
                         <h3>Crash Bandicoot</h3>
-                        <p>Plataformas clásico de Naughty Dog. Revive la aventura en la isla N. Sanity.</p>
+                        <p>Aventura clásica de plataformas en 32 bits.</p>
                     </div>
-                    <a href="#" class="btn-launch">Jugar / Cargar</a>
+                    <a href="#" class="btn-launch">Descargar ISO</a>
                 </div>
-
                 <div class="card">
                     <div>
                         <span class="game-badge">PS1</span>
                         <h3>Resident Evil 2</h3>
-                        <p>Survival horror imprescindible en Raccoon City junto a Leon y Claire.</p>
+                        <p>Survival horror en Raccoon City.</p>
                     </div>
-                    <a href="#" class="btn-launch">Jugar / Cargar</a>
+                    <a href="#" class="btn-launch">Descargar ISO</a>
                 </div>
-
-                <div class="card">
-                    <div>
-                        <span class="game-badge">PS1</span>
-                        <h3>Tekken 3</h3>
-                        <p>El rey de la lucha en 32 bits con el torneo del Rey del Puño de Hierro.</p>
-                    </div>
-                    <a href="#" class="btn-launch">Jugar / Cargar</a>
-                </div>
-
             </div>
         </div>
 
-        <div id="proximamente">
-            <h2 class="section-title">Futuras Incorporaciones</h2>
+        <!-- SECCIÓN DE BIOS -->
+        <div id="bios">
+            <h2 class="section-title">Archivos BIOS</h2>
             <div class="grid-cards">
                 <div class="card">
                     <div>
-                        <h3>Game Boy Advance</h3>
-                        <p>Próximamente catálogo de juegos portátiles de Nintendo.</p>
+                        <h3>BIOS PlayStation 1 (SCPH1001)</h3>
+                        <p>Archivo requerido para la correcta emulación de región americana.</p>
                     </div>
-                    <span class="badge-coming-soon">En desarrollo...</span>
+                    <a href="#" class="btn-launch">Obtener BIOS</a>
                 </div>
-                <div class="card">
-                    <div>
-                        <h3>Otros Sistemas</h3>
-                        <p>Próximamente más consolas clásicas.</p>
-                    </div>
-                    <span class="badge-coming-soon">En desarrollo...</span>
-                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE REPORTAR ENLACES -->
+        <div id="reportar">
+            <h2 class="section-title">Reportar Enlaces</h2>
+            <div class="card">
+                <p>¿Encontraste un enlace caído o que no funciona? Infórmanos para corregirlo lo antes posible.</p>
+                <a href="#" class="btn-launch">Enviar Reporte</a>
             </div>
         </div>
 
@@ -232,6 +260,23 @@
     <footer>
         <p>Legacy Gaming &copy; 2026 - Creado para fans de lo retro</p>
     </footer>
+
+    <!-- Script en JavaScript para abrir y cerrar el menú desplegable -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        // Cerrar el menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
+    </script>
 
 </body>
 </html>
