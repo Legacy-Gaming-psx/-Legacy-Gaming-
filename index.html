@@ -84,32 +84,106 @@
             background: #00439c;
         }
 
+        /* Contenedor Principal con Layout Sidebar + Contenido */
         .container {
-            max-width: 950px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
-            min-height: 60vh;
+            min-height: 65vh;
         }
 
-        /* Sistema de Vistas/Pestañas */
         .page-view {
-            display: none; /* Oculta todas las páginas por defecto */
+            display: none;
         }
 
         .page-view.active {
-            display: block; /* Solo muestra la vista activa */
+            display: block;
         }
 
-        .section-title {
-            border-left: 4px solid #00439c;
-            padding-left: 10px;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        /* Layout Grid para el Inicio tipo RomsGames */
+        .home-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 25px;
         }
 
+        @media (max-width: 768px) {
+            .home-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar de Consolas */
+        .sidebar {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #0070d1;
+            border-bottom: 2px solid #00439c;
+            padding-bottom: 8px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .sidebar a:hover {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        /* Área central de Noticias y Destacados */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .featured-card {
+            background-color: #1e1e1e;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .featured-card h2 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .featured-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Grid de Sub-cards */
         .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
 
@@ -141,7 +215,6 @@
             font-weight: bold;
         }
 
-        /* Botón estilo MediaFire (Verde) */
         .btn-mediafire {
             display: inline-block;
             margin-top: 15px;
@@ -152,11 +225,6 @@
             font-weight: bold;
             border-radius: 5px;
             border: 1px solid #1e7e34;
-            transition: background 0.2s;
-        }
-
-        .btn-mediafire:hover {
-            background-color: #218838;
         }
 
         .btn-launch {
@@ -171,17 +239,19 @@
             border: 1px solid #0070d1;
         }
 
-        .btn-launch:hover {
-            background-color: #0070d1;
-        }
-
+        /* Footer Retro */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            background-color: #0a0a0a;
             border-top: 1px solid #222;
             margin-top: 50px;
-            font-size: 0.8rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -203,18 +273,45 @@
 
     <div class="container">
         
-        <!-- SECCIÓN: INICIO -->
+        <!-- SECCIÓN: INICIO (ESTILO ROMSGAMES) -->
         <div id="view-inicio" class="page-view active">
-            <h2 class="section-title">Bienvenido a Legacy Gaming</h2>
-            <div class="card">
-                <h3>El portal retro para fanáticos</h3>
-                <p>Navega a través del menú superior para acceder a nuestro catálogo de ISOs alojadas en MediaFire, emuladores y la BIOS requerida para jugar.</p>
+            <div class="home-layout">
+                
+                <!-- Barra Lateral de Sistemas -->
+                <aside class="sidebar">
+                    <h3>Sistemas / Consolas</h3>
+                    <ul>
+                        <li><a onclick="showPage('isos')">🎮 PlayStation 1</a></li>
+                        <li><a onclick="showPage('isos')">🕹️ Game Boy Advance</a></li>
+                        <li><a onclick="showPage('isos')">🕹️ PlayStation Portable</a></li>
+                        <li><a onclick="showPage('isos')">🕹️ Super Nintendo</a></li>
+                        <li><a onclick="showPage('isos')">🕹️ Nintendo 64</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Área Central de Noticias y Novedades -->
+                <main class="main-content">
+                    <div class="featured-card">
+                        <span class="game-badge">Novedad Principal</span>
+                        <h2>Bienvenido a Legacy Gaming</h2>
+                        <p>Tu biblioteca para revivir los mejores títulos clásicos de PlayStation 1. Descarga ISOs probadas directamente desde MediaFire, junto con emuladores optimizados y sus respectivas BIOS para jugar en PC o móviles.</p>
+                        <a onclick="showPage('isos')" class="btn-launch">Explorar Catálogo Completo</a>
+                    </div>
+
+                    <div class="featured-card">
+                        <span class="game-badge">Destacado del Mes</span>
+                        <h3>Mejores Emuladores para PS1 en PC</h3>
+                        <p>Descubre cómo configurar DuckStation para correr juegos de 32 bits a resolución 4K y 60 FPS sin tirones.</p>
+                        <a onclick="showPage('emuladores')" class="btn-launch">Ver Guía y Emulador</a>
+                    </div>
+                </main>
+
             </div>
         </div>
 
         <!-- SECCIÓN: EMULADORES -->
         <div id="view-emuladores" class="page-view">
-            <h2 class="section-title">Emuladores Disponibles</h2>
+            <h2 class="section-title" style="border-left: 4px solid #00439c; padding-left: 10px;">Emuladores Disponibles</h2>
             <div class="grid-cards">
                 <div class="card">
                     <div>
@@ -226,23 +323,18 @@
             </div>
         </div>
 
-        <!-- SECCIÓN: ISOS / JUEGOS MEDIAFIRE -->
+        <!-- SECCIÓN: ISOS / JUEGOS -->
         <div id="view-isos" class="page-view">
-            <h2 class="section-title">Catálogo de ISOs (PS1)</h2>
-            <p>Descargas directas a través de <strong>MediaFire</strong> sin límites molestos.</p>
-            
+            <h2 class="section-title" style="border-left: 4px solid #00439c; padding-left: 10px;">Catálogo de ISOs (PS1)</h2>
             <div class="grid-cards">
-                
                 <div class="card">
                     <div>
                         <span class="game-badge">MediaFire</span>
                         <h3>Crash Bandicoot</h3>
                         <p>Formato ISO/BIN-CUE - 100% Funcional.</p>
                     </div>
-                    <!-- Pon tu enlace de MediaFire en el href -->
                     <a href="https://www.mediafire.com" target="_blank" class="btn-mediafire">Descargar por MediaFire</a>
                 </div>
-
                 <div class="card">
                     <div>
                         <span class="game-badge">MediaFire</span>
@@ -251,34 +343,30 @@
                     </div>
                     <a href="https://www.mediafire.com" target="_blank" class="btn-mediafire">Descargar por MediaFire</a>
                 </div>
-
             </div>
         </div>
 
         <!-- SECCIÓN: BIOS -->
         <div id="view-bios" class="page-view">
-            <h2 class="section-title">Archivos BIOS Necesarios</h2>
+            <h2 class="section-title" style="border-left: 4px solid #00439c; padding-left: 10px;">Archivos BIOS</h2>
             <div class="grid-cards">
                 <div class="card">
                     <div>
                         <h3>BIOS PlayStation 1 (SCPH1001)</h3>
-                        <p>Requerida para ejecutar correctamente los juegos de PS1.</p>
+                        <p>Requerida para ejecutar correctamente los juegos.</p>
                     </div>
                     <a href="https://www.mediafire.com" target="_blank" class="btn-mediafire">Descargar BIOS</a>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN: REPORTAR ENLACES / REDES -->
+        <!-- SECCIÓN: REPORTAR -->
         <div id="view-reportar" class="page-view">
-            <h2 class="section-title">Reportar Enlace Caído o Contacto</h2>
+            <h2 class="section-title" style="border-left: 4px solid #00439c; padding-left: 10px;">Reportar Enlace Caído</h2>
             <div class="card">
                 <h3>¿Un enlace de MediaFire no funciona?</h3>
-                <p>Infórmanos directamente para resubir el archivo en cuestión de horas.</p>
-                
-                <div style="margin-top: 15px;">
-                    <a href="#" class="btn-launch">Contacto / Redes Sociales</a>
-                </div>
+                <p>Infórmanos directamente para resubir el archivo.</p>
+                <a href="#" class="btn-launch">Contacto / Redes Sociales</a>
             </div>
         </div>
 
@@ -286,9 +374,9 @@
 
     <footer>
         <p>Legacy Gaming &copy; 2026 - Creado para fans de lo retro</p>
+        <p> Built by gamers, for gamers </p>
     </footer>
 
-    <!-- Lógica en JS para alternar vistas al hacer clic en el menú -->
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
@@ -297,19 +385,15 @@
             navMenu.classList.toggle('open');
         });
 
-        // Función para cambiar de vista ocultando y mostrando según la opción elegida
         function showPage(pageId) {
-            // Ocultar todas las secciones
             const views = document.querySelectorAll('.page-view');
             views.forEach(view => view.classList.remove('active'));
 
-            // Mostrar solo la seleccionada
             const targetView = document.getElementById('view-' + pageId);
             if (targetView) {
                 targetView.classList.add('active');
             }
 
-            // Cerrar menú desplegable
             navMenu.classList.remove('open');
         }
     </script>
