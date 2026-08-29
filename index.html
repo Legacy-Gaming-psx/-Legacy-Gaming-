@@ -440,16 +440,29 @@
         </div>
 
         <!-- SECCIÓN: REPORTAR -->
-        <div id="view-reportar" class="page-view">
-            <h2 class="section-title">Reportar Enlace Caído</h2>
+         <div id="view-reportar" class="page-view">
+            <h2 class="section-title">Reportar Enlace Caído o Pedir Juego</h2>
             <div class="featured-card">
-                <h3>¿Un enlace de MediaFire no funciona?</h3>
-                <p style="color: #aaa;">Infórmanos para resubir el archivo a la brevedad.</p>
-                <a href="#" class="btn-launch">Contacto / Redes Sociales</a>
+                <h3 style="color: #0070d1; margin-top: 0;">¿Un enlace de MediaFire no funciona?</h3>
+                <p style="color: #aaa; margin-bottom: 20px;">Déjanos un mensaje para resubir el archivo o agregar el juego que estás buscando a la brevedad.</p>
+                
+                <form action="https://formspree.io/f/xbjnqkyw" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 600px;">
+                    <div>
+                        <label style="display: block; color: #ccc; margin-bottom: 5px; font-size: 0.9rem;">Tu Nombre / Apodo:</label>
+                        <input type="text" name="nombre" placeholder="Ej. GamerRetro99" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #333; background: #121212; color: #fff; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="display: block; color: #ccc; margin-bottom: 5px; font-size: 0.9rem;">Juego o Emulador con problema:</label>
+                        <input type="text" name="juego" placeholder="Ej. Resident Evil 2" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #333; background: #121212; color: #fff; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="display: block; color: #ccc; margin-bottom: 5px; font-size: 0.9rem;">Detalle del reporte / Petición:</label>
+                        <textarea name="mensaje" rows="4" placeholder="Describe lo que sucede con el enlace..." required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #333; background: #121212; color: #fff; box-sizing: border-box; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-launch" style="cursor: pointer; border: none; align-self: flex-start;">Enviar Reporte</button>
+                </form>
             </div>
         </div>
-
-    </div>
 
     <footer>
         <p>Legacy Gaming &copy; 2026 - Creado para fans de lo retro</p>
