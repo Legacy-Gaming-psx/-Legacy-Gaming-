@@ -4,14 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legacy Gaming - Emuladores & ISOs</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- ESTILOS CYBERPUNK INTEGRADOS -->
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* FONDO OSCURO CONFORTABLE */
+        body {
+            background-color: #0d0f17; /* Azul noche muy oscuro, descansa la vista */
+            color: #e0e6ed;
+        }
+
+        /* CABECERA CON BORDE NEÓN CIAN */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background-color: #121522;
+            border-bottom: 2px solid #00f0ff; /* Borde cian sutil */
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
+        }
+
+        .logo-texto {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .neon-point {
+            color: #ff007f; /* Punto magenta neón */
+            text-shadow: 0 0 8px #ff007f;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #00f0ff;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+        }
+
+        /* SECCIÓN HERO / INICIO */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .titulo-neon {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #7928ca, 0 0 20px #7928ca; /* Brillo púrpura sutil */
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .btn-neon {
+            display: inline-block;
+            padding: 12px 30px;
+            color: #00f0ff;
+            border: 2px solid #00f0ff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            background-color: #00f0ff;
+            color: #0d0f17;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- CABECERA Y NAVEGACIÓN (Preparado para el Mando Neón) -->
+    <!-- CABECERA Y NAVEGACIÓN -->
     <header class="navbar">
         <div class="logo-container">
-            <!-- Espacio reservado para el isotipo de Mando Neón + Iniciales -->
             <span class="logo-texto">LG <span class="neon-point">.</span></span>
         </div>
         <nav>
@@ -22,7 +119,7 @@
         </nav>
     </header>
 
-    <!-- SECCIÓN DE INICIO (PORTADA LIMPIA Y CYBERPUNK) -->
+    <!-- SECCIÓN DE INICIO (PORTADA LIMPIA) -->
     <main>
         <section id="inicio" class="hero-section">
             <div class="hero-content">
