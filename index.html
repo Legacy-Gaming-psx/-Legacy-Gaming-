@@ -336,6 +336,52 @@
             background-color: #00ff66;
             box-shadow: 0 0 5px #00ff66;
         }
+    /* === EMBLEMA RETRO Y LOGO === */
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .shield-badge {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #00ff66;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 255, 102, 0.05);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4), inset 0 0 10px rgba(0, 255, 102, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .shield-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.8), inset 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glitch-title {
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+        }
+
+        .sub-title {
+            color: #00aa44;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
