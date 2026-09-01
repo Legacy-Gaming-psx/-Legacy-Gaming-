@@ -481,26 +481,24 @@
         <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
     </div>
 </section>
-    <!-- SCRIPT GENERAL: RELOJ EN TIEMPO REAL + NAVEGACIÓN DINÁMICA -->
+    <!-- SCRIPT GENERAL: RELOJ + NAVEGACIÓN -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. CÓDIGO DEL RELOJ EN TIEMPO REAL (REPARADO)
+    // 1. RELOJ EN TIEMPO REAL
     function actualizarReloj() {
-        const ahora = new Date();
-        const horas = String(ahora.getHours()).padStart(2, '0');
-        const minutos = String(ahora.getMinutes()).padStart(2, '0');
-        const segundos = String(ahora.getSeconds()).padStart(2, '0');
-        
-        // Busca por ID 'clock' o por la etiqueta de estado del sistema
-        const elementoReloj = document.getElementById('clock') || document.querySelector('.sys-tag');
+        const elementoReloj = document.getElementById('clock');
         if (elementoReloj) {
+            const ahora = new Date();
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
             elementoReloj.textContent = ${horas}:${minutos}:${segundos};
         }
     }
     setInterval(actualizarReloj, 1000);
     actualizarReloj();
 
-    // 2. NAVEGACIÓN DINÁMICA
+    // 2. NAVEGACIÓN DINÁMICA (INICIO / ISOS)
     const btnInicio = document.querySelector('a[href="#inicio"]');
     const btnIsos = document.querySelector('a[href="#isos"]');
     const logoLink = document.querySelector('.header-brand-link');
