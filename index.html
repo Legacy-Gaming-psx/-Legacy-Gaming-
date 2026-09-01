@@ -484,14 +484,15 @@
     <!-- SCRIPT GENERAL: RELOJ EN TIEMPO REAL + NAVEGACIÓN DINÁMICA -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. CÓDIGO DEL RELOJ EN TIEMPO REAL
+    // 1. CÓDIGO DEL RELOJ EN TIEMPO REAL (REPARADO)
     function actualizarReloj() {
         const ahora = new Date();
         const horas = String(ahora.getHours()).padStart(2, '0');
         const minutos = String(ahora.getMinutes()).padStart(2, '0');
         const segundos = String(ahora.getSeconds()).padStart(2, '0');
         
-        const elementoReloj = document.getElementById('clock');
+        // Busca por ID 'clock' o por la etiqueta de estado del sistema
+        const elementoReloj = document.getElementById('clock') || document.querySelector('.sys-tag');
         if (elementoReloj) {
             elementoReloj.textContent = ${horas}:${minutos}:${segundos};
         }
@@ -499,12 +500,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarReloj, 1000);
     actualizarReloj();
 
-    // 2. NAVEGACIÓN DINÁMICA (OPCIÓN A: INICIO / ISOS)
+    // 2. NAVEGACIÓN DINÁMICA
     const btnInicio = document.querySelector('a[href="#inicio"]');
     const btnIsos = document.querySelector('a[href="#isos"]');
     const logoLink = document.querySelector('.header-brand-link');
 
-    // Secciones principales
     const seccionInicio = document.querySelector('.hero-section') || document.querySelector('#inicio'); 
     const seccionIsos = document.querySelector('#juegos-recientes');
 
@@ -522,7 +522,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Activar clics
     if(btnInicio) btnInicio.addEventListener('click', mostrarInicio);
     if(logoLink) logoLink.addEventListener('click', mostrarInicio);
     if(btnIsos) btnIsos.addEventListener('click', mostrarIsos);
