@@ -17,7 +17,7 @@
 
         /* FONDO OSCURO CONFORTABLE */
         body {
-            background-color: #0d0f17; /* Azul noche muy oscuro, descansa la vista */
+            background-color: #0d0f17;
             color: #e0e6ed;
         }
 
@@ -28,7 +28,7 @@
             align-items: center;
             padding: 1.2rem 2rem;
             background-color: #121522;
-            border-bottom: 2px solid #00f0ff; /* Borde cian sutil */
+            border-bottom: 2px solid #00f0ff;
             box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
         }
 
@@ -40,7 +40,7 @@
         }
 
         .neon-point {
-            color: #ff007f; /* Punto magenta neón */
+            color: #ff007f;
             text-shadow: 0 0 8px #ff007f;
         }
 
@@ -62,20 +62,25 @@
             text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
         }
 
-        /* SECCIÓN HERO / INICIO */
+        /* DISTRIBUCIÓN DE COLUMNAS EN EL INICIO */
         .hero-section {
-            height: 80vh;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            padding: 20px;
+            padding: 40px 8%;
+            gap: 40px;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            text-align: left;
         }
 
         .titulo-neon {
             font-size: 3rem;
             color: #ffffff;
-            text-shadow: 0 0 10px #7928ca, 0 0 20px #7928ca; /* Brillo púrpura sutil */
+            text-shadow: 0 0 10px #7928ca, 0 0 20px #7928ca;
             margin-bottom: 10px;
         }
 
@@ -102,6 +107,52 @@
             color: #0d0f17;
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
         }
+
+        .hero-side {
+            flex: 0.8;
+            max-width: 380px;
+        }
+
+        /* TARJETA DE ESTADÍSTICAS Y VENTAJAS */
+        .stats-card {
+            background-color: #121522;
+            border: 1px solid #00f0ff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stats-title {
+            color: #ff007f;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.4);
+        }
+
+        .stat-item {
+            background-color: #1a1d2d;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00f0ff;
+            text-align: left;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00f0ff;
+        }
+
+        .stat-lbl {
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
     </style>
 </head>
 <body>
@@ -119,14 +170,39 @@
         </nav>
     </header>
 
-    <!-- SECCIÓN DE INICIO (PORTADA LIMPIA) -->
+    <!-- SECCIÓN DE INICIO (PORTADA EN 2 COLUMNAS) -->
     <main>
         <section id="inicio" class="hero-section">
+            
+            <!-- COLUMNA IZQUIERDA: Texto y Bienvenida -->
             <div class="hero-content">
                 <h1 class="titulo-neon">LEGACY GAMING</h1>
-                <p class="subtitulo">Tu rincón de emulación, nostalgia y catálogo retro.</p>
+                <p class="subtitulo">Tu rincón de emulación, nostalgia y catálogo retro sin publicidad invasiva.</p>
                 <a href="#isos" class="btn-neon">Explorar ISOs</a>
             </div>
+
+            <!-- COLUMNA DERECHA: Panel de Ventajas -->
+            <div class="hero-side">
+                <div class="stats-card">
+                    <h3 class="stats-title">¿POR QUÉ ELEGIRNOS?</h3>
+                    
+                    <div class="stat-item">
+                        <span class="stat-num">+50</span>
+                        <span class="stat-lbl">ISOs Disponibles</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-lbl">Sin Acortadores (Directo a Mediafire)</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-num">RETRO</span>
+                        <span class="stat-lbl">PS1 • PS2 • N64</span>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
