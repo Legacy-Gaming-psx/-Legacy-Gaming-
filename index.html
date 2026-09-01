@@ -481,19 +481,52 @@
         <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
     </div>
 </section>
-    <!-- SCRIPT DEL RELOJ EN TIEMPO REAL -->
-    <script>
-        function actualizarReloj() {
-            const ahora = new Date();
-            const horas = String(ahora.getHours()).padStart(2, '0');
-            const minutos = String(ahora.getMinutes()).padStart(2, '0');
-            const segundos = String(ahora.getSeconds()).padStart(2, '0');
-            
-            document.getElementById('reloj').textContent = horas + ':' + minutos + ':' + segundos;
+    <!-- SCRIPT GENERAL: RELOJ EN TIEMPO REAL + NAVEGACIÓN DINÁMICA -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. CÓDIGO DEL RELOJ EN TIEMPO REAL
+    function actualizarReloj() {
+        const ahora = new Date();
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        const segundos = String(ahora.getSeconds()).padStart(2, '0');
+        
+        const elementoReloj = document.getElementById('clock');
+        if (elementoReloj) {
+            elementoReloj.textContent = ${horas}:${minutos}:${segundos};
         }
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
 
-        setInterval(actualizarReloj, 1000);
-        actualizarReloj();
-    </script>
+    // 2. NAVEGACIÓN DINÁMICA (OPCIÓN A: INICIO / ISOS)
+    const btnInicio = document.querySelector('a[href="#inicio"]');
+    const btnIsos = document.querySelector('a[href="#isos"]');
+    const logoLink = document.querySelector('.header-brand-link');
+
+    // Secciones principales
+    const seccionInicio = document.querySelector('.hero-section') || document.querySelector('#inicio'); 
+    const seccionIsos = document.querySelector('#juegos-recientes');
+
+    function mostrarInicio(e) {
+        if(e) e.preventDefault();
+        if(seccionInicio) seccionInicio.style.display = 'block';
+        if(seccionIsos) seccionIsos.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function mostrarIsos(e) {
+        if(e) e.preventDefault();
+        if(seccionInicio) seccionInicio.style.display = 'none';
+        if(seccionIsos) seccionIsos.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Activar clics
+    if(btnInicio) btnInicio.addEventListener('click', mostrarInicio);
+    if(logoLink) logoLink.addEventListener('click', mostrarInicio);
+    if(btnIsos) btnIsos.addEventListener('click', mostrarIsos);
+});
+</script>
 </body>
 </html>
