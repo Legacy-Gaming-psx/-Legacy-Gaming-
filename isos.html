@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Gaming - Emuladores & ISOs</title>
+    
+    <!-- ESTILOS CYBERPUNK INTEGRADOS -->
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        /* FONDO OSCURO CONFORTABLE */
+        body {
+            background-color: #0d0f17;
+            color: #e0e6ed;
+        }
+
+        /* CABECERA CON BORDE NEÓN CIAN */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background-color: #121522;
+            border-bottom: 2px solid #00f0ff;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
+        }
+
+        .logo-texto {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .neon-point {
+            color: #ff007f;
+            text-shadow: 0 0 8px #ff007f;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #00f0ff;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+        }
+
+        /* DISTRIBUCIÓN DE COLUMNAS EN EL INICIO */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 8%;
+            gap: 40px;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            text-align: left;
+        }
+
+        .titulo-neon {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #7928ca, 0 0 20px #7928ca;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .btn-neon {
+            display: inline-block;
+            padding: 12px 30px;
+            color: #00f0ff;
+            border: 2px solid #00f0ff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            background-color: #00f0ff;
+            color: #0d0f17;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+        }
+
+        .hero-side {
+            flex: 0.8;
+            max-width: 380px;
+        }
+
+        /* TARJETA DE ESTADÍSTICAS Y VENTAJAS */
+        .stats-card {
+            background-color: #121522;
+            border: 1px solid #00f0ff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stats-title {
+            color: #ff007f;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.4);
+        }
+
+        .stat-item {
+            background-color: #1a1d2d;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00f0ff;
+            text-align: left;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00f0ff;
+        }
+
+        .stat-lbl {
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+        /* TERMINAL DE COMANDOS TIPO FALLOUT */
+        .terminal-card {
+            background-color: #050b07;
+            border: 1px solid #00ff66;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .red { background-color: #ff5f56; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #00ff66;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .terminal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .prompt {
+            color: #00cc52;
+            font-size: 0.75rem;
+        }
+
+        .reloj-digital {
+            color: #00ff66;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 0 0 8px #00ff66;
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        .subtext-terminal {
+            color: #00993d;
+            font-size: 0.7rem;
+        }
+
+        .cursor-blink {
+            animation: parpadeo 1s infinite;
+        }
+
+        @keyframes parpadeo {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* === CATÁLOGO ISOs MINI-TARJETAS === */
+        .iso-section {
+            margin-top: 30px;
+            padding: 10px;
+        }
+
+        .section-header-terminal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #00ff66;
+            padding-bottom: 5px;
+        }
+
+        .section-header-terminal h2 {
+            color: #00ff66;
+            font-size: 1.1rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+        }
+
+        .iso-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .iso-card {
+            background-color: #08120a;
+            border: 1px solid #00aa44;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .iso-card:hover {
+            transform: translateY(-3px);
+            border-color: #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+
+        .iso-thumb {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background-color: #000;
+        }
+
+        .iso-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag-console {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .iso-info {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
+        }
+
+        .iso-title {
+            color: #ffffff;
+            font-size: 0.85rem;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .iso-details {
+            display: flex;
+            justify-content: space-between;
+            color: #00aa44;
+            font-size: 0.65rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .btn-download-mini {
+            display: block;
+            text-align: center;
+            background-color: #00aa44;
+            color: #000000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 5px 0;
+            border-radius: 3px;
+            margin-top: auto;
+            transition: background 0.2s;
+        }
+
+        .btn-download-mini:hover {
+            background-color: #00ff66;
+            box-shadow: 0 0 5px #00ff66;
+        }
+    /* === EMBLEMA RETRO Y LOGO === */
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .shield-badge {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #00ff66;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 255, 102, 0.05);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4), inset 0 0 10px rgba(0, 255, 102, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .shield-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.8), inset 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glitch-title {
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+        }
+
+        .sub-title {
+            color: #00aa44;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO Y BARRA DE NAVEGACIÓN PRINCIPAL -->
+<header class="navbar">
+    
+    <!-- LOGO Y EMBLEMA DE LEGACY GAMING (CLICABLE AL INICIO) -->
+    <a href="#inicio" class="header-brand-link" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+        <div class="header-brand">
+            <div class="shield-badge">
+                <svg class="shield-icon" viewBox="0 0 24 24" width="32" height="32" stroke="#00ff66" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polygon points="12 6 15 11 10 11 13 16 9 16 12 6"></polygon>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <h1 class="glitch-title">LEGACY GAMING</h1>
+                <span class="sub-title">SYSTEM_STATUS: ONLINE // EST. 2026</span>
+            </div>
+        </div>
+    </a>
+
+    <!-- MÓDULO LG + MENÚ DE NAVEGACIÓN HORIZONTAL -->
+    <div class="nav-container">
+        <div class="sys-status">
+            <span class="status-dot"></span>
+            <span class="sys-tag">LG</span>
+        </div>
+        <nav class="nav-links">
+            <nav>
+  <a href="index.html">[ INICIO ]</a>
+  <a href="isos.html">[ ISOS ]</a>
+</nav>
+        </nav>
+    </div>
+
+</header>
+
+    <!-- SECCIÓN DE INICIO (PORTADA EN 2 COLUMNAS) -->
+    <main>
+        <section id="inicio" class="hero-section">
+            
+            <!-- COLUMNA IZQUIERDA: Texto y Bienvenida -->
+            <div class="hero-content">
+                <h1 class="titulo-neon">LEGACY GAMING</h1>
+                <p class="subtitulo">Tu rincón de emulación, nostalgia y catálogo retro sin publicidad invasiva.</p>
+                <a href="#isos" class="btn-neon">Explorar ISOs</a>
+            </div>
+
+            <!-- COLUMNA DERECHA: Panel de Ventajas -->
+            <div class="hero-side">
+                <!-- TERMINAL / RELOJ TIPO FALLOUT -->
+<div class="terminal-card">
+    <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">SYS_TIME.EXE</span>
+    </div>
+    <div class="terminal-body">
+        <span class="prompt">&gt; USER_STATUS: ONLINE</span>
+        <div class="reloj-digital" id="reloj">00:00:00</div>
+        <span class="subtext-terminal">L.G. SYSTEM v1.0 <span class="cursor-blink">_</span></span>
+    </div>
+</div>
+                <div class="stats-card">
+                    <h3 class="stats-title">¿POR QUÉ ELEGIRNOS?</h3>
+                    
+                    <div class="stat-item">
+                        <span class="stat-num">+50</span>
+                        <span class="stat-lbl">ISOs Disponibles</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-lbl">Sin Acortadores (Directo a Mediafire)</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-num">RETRO</span>
+                        <span class="stat-lbl">PS1 • PS2 • N64</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!-- SECCIÓN DE JUEGOS RECIENTES -->
+<section id="juegos-recientes" class="system-section">
+    <div class="section-header">
+        <h2>JUEGOS_RECIENTES.EXE</h2>
+        <span class="system-badge">ULTIMAS_NOVEDADES</span>
+    </div>
+
+    <!-- CONTENEDOR TEMPORAL HASTA AGREGAR JUEGOS FINALES -->
+    <div class="recent-games-placeholder" style="border: 1px dashed #00ff66; padding: 20px; text-align: center; color: #00ff66; margin-top: 15px;">
+        <p>[ SISTEMA EN ESPERA // NINGÚN JUEGO REGISTRADO EN EL HISTORIAL RECIENTE ]</p>
+        <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
+    </div>
+</section>
+    <!-- SCRIPT DEL RELOJ EN TIEMPO REAL -->
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('reloj').textContent = horas + ':' + minutos + ':' + segundos;
+        }
+
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj();
+    </script>
+</body>
+</html>
