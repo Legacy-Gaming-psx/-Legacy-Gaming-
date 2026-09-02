@@ -500,32 +500,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarReloj, 1000);
     actualizarReloj();
 
-    // 2. NAVEGACIÓN DINÁMICA (INICIO / ISOS)
-    const btnInicio = document.querySelector('a[href="#inicio"]');
-    const btnIsos = document.querySelector('a[href="#isos"]');
-    const logoLink = document.querySelector('.header-brand-link');
+    // 1. Buscamos los enlaces del menú
+const btnInicio = document.querySelector('a[href="#inicio"]');
+const btnIsos = document.querySelector('a[href="#isos"]');
 
-    const seccionInicio = document.querySelector('.hero-section') || document.querySelector('#inicio'); 
-    const seccionIsos = document.querySelector('#juegos-recientes');
+// 2. Buscamos las dos secciones de la página
+const seccionInicio = document.querySelector('#inicio') || document.querySelector('.hero-section');
+const seccionIsos = document.querySelector('#isos');
 
-    function mostrarInicio(e) {
-        if(e) e.preventDefault();
-        if(seccionInicio) seccionInicio.style.display = 'block';
-        if(seccionIsos) seccionIsos.style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+// 3. Función para cambiar a la pantalla de ISOs
+if (btnIsos) {
+    btnIsos.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (seccionInicio) seccionInicio.style.display = 'none';  // Oculta Inicio
+        if (seccionIsos) seccionIsos.style.display = 'block';     // Muestra ISOs
+    });
+}
 
-    function mostrarIsos(e) {
-        if(e) e.preventDefault();
-        if(seccionInicio) seccionInicio.style.display = 'none';
-        if(seccionIsos) seccionIsos.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    if(btnInicio) btnInicio.addEventListener('click', mostrarInicio);
-    if(logoLink) logoLink.addEventListener('click', mostrarInicio);
-    if(btnIsos) btnIsos.addEventListener('click', mostrarIsos);
-});
+// 4. Función para regresar a INICIO
+if (btnInicio) {
+    btnInicio.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (seccionIsos) seccionIsos.style.display = 'none';     // Oculta ISOs
+        if (seccionInicio) seccionInicio.style.display = 'block'; // Muestra Inicio
+    });
+}
 </script>    
 </body>
 </html>
