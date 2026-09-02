@@ -476,55 +476,24 @@
     </div>
 
     <!-- CONTENEDOR TEMPORAL HASTA AGREGAR JUEGOS FINALES -->
-    <section id="isos" style="display: none;">
     <div class="recent-games-placeholder" style="border: 1px dashed #00ff66; padding: 20px; text-align: center; color: #00ff66; margin-top: 15px;">
         <p>[ SISTEMA EN ESPERA // NINGÚN JUEGO REGISTRADO EN EL HISTORIAL RECIENTE ]</p>
         <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
     </div>
 </section>
-    <!-- SCRIPT GENERAL: RELOJ + NAVEGACIÓN -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. RELOJ EN TIEMPO REAL
-    function actualizarReloj() {
-        const elementoReloj = document.getElementById<span id=¨clock¨
-        class=¨sintax¨>00:00:00</>
-        if (elementoReloj) {
+    <!-- SCRIPT DEL RELOJ EN TIEMPO REAL -->
+    <script>
+        function actualizarReloj() {
             const ahora = new Date();
             const horas = String(ahora.getHours()).padStart(2, '0');
             const minutos = String(ahora.getMinutes()).padStart(2, '0');
             const segundos = String(ahora.getSeconds()).padStart(2, '0');
-            elementoReloj.textContent = ${horas}:${minutos}:${segundos};
+            
+            document.getElementById('reloj').textContent = horas + ':' + minutos + ':' + segundos;
         }
-    }
-    setInterval(actualizarReloj, 1000);
-    actualizarReloj();
 
-    // 1. Buscamos los enlaces del menú
-const btnInicio = document.querySelector('a[href="#inicio"]');
-const btnIsos = document.querySelector('a[href="#isos"]');
-
-// 2. Buscamos las dos secciones de la página
-const seccionInicio = document.querySelector('#inicio') || document.querySelector('.hero-section');
-const seccionIsos = document.querySelector('#isos');
-
-// 3. Función para cambiar a la pantalla de ISOs
-if (btnIsos) {
-    btnIsos.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (seccionInicio) seccionInicio.style.display = 'none';  // Oculta Inicio
-        if (seccionIsos) seccionIsos.style.display = 'block';     // Muestra ISOs
-    });
-}
-
-// 4. Función para regresar a INICIO
-if (btnInicio) {
-    btnInicio.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (seccionIsos) seccionIsos.style.display = 'none';     // Oculta ISOs
-        if (seccionInicio) seccionInicio.style.display = 'block'; // Muestra Inicio
-    });
-}
-</script>    
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj();
+    </script>
 </body>
 </html>
