@@ -477,19 +477,6 @@
         <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
     </div>
 </section>
-    <!-- SCRIPT DEL RELOJ EN TIEMPO REAL -->
-    <script>
-        function actualizarReloj() {
-            const ahora = new Date();
-            const horas = String(ahora.getHours()).padStart(2, '0');
-            const minutos = String(ahora.getMinutes()).padStart(2, '0');
-            const segundos = String(ahora.getSeconds()).padStart(2, '0');
-            
-            document.getElementById('reloj').textContent = horas + ':' + minutos + ':' + segundos;
-        }
 
-        setInterval(actualizarReloj, 1000);
-        actualizarReloj();
-    </script>
 </body>
 </html>
