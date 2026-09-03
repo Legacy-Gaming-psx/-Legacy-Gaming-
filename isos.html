@@ -433,32 +433,26 @@
             
                 
 
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-    <div class="stat-item">
-        <span class="stat-num">100%</span>
-        <span class="stat-lbl">Sin Acortadores (Directo a Mediafire)</span>
-    </div>
+                    <!-- SECCIÓN DE CATÁLOGO / MINI TARJETAS -->
+    <section id="juegos-recientes" class="system-section" style="margin-top: 20px;">
+        <div class="section-header">
+            <h2>JUEGOS_RECIENTES.EXE</h2>
+            <span class="system-badge">ULTIMAS_NOVEDADES</span>
+        </div>
 
-    <div class="stat-item">
-        <span class="stat-num">RETRO</span>
-        <span class="stat-lbl">PS1 • PS2 • N64</span>
-    </div>
-</div>
-        </section>
-    </main>
-    <!-- SECCIÓN DE JUEGOS RECIENTES -->
-<section id="juegos-recientes" class="system-section">
-    <div class="section-header">
-        <h2>JUEGOS_RECIENTES.EXE</h2>
-        <span class="system-badge">ULTIMAS_NOVEDADES</span>
-    </div>
+        <!-- CONTENEDOR DE MINI TARJETAS -->
+        <div class="games-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+            
+            <!-- MINI TARJETA 1 (PLANTILLA BASE) -->
+            <div class="game-card" style="border: 1px solid #00ff66; padding: 10px; background: rgba(0,0,0,0.6); text-align: center; border-radius: 5px;">
+                <img src="ruta-de-tu-imagen.jpg" alt="Nombre del Juego" style="width: 100%; height: 140px; object-fit: cover; border-bottom: 1px solid #00ff66;">
+                <h3 style="color: #fff; font-size: 1em; margin: 8px 0 4px 0;">TITULO DEL JUEGO</h3>
+                <span style="color: #00ff66; font-size: 0.8em; display: block; margin-bottom: 8px;">[ PLATAFORMA ]</span>
+                <a href="#" target="_blank" style="display: inline-block; padding: 5px 10px; background: #00ff66; color: #000; text-decoration: none; font-weight: bold; font-size: 0.85em; border-radius: 3px;">DESCARGAR (MEDIAFIRE)</a>
+            </div>
 
-    <!-- CONTENEDOR TEMPORAL HASTA AGREGAR JUEGOS FINALES -->
-    <div class="recent-games-placeholder" style="border: 1px dashed #00ff66; padding: 20px; text-align: center; color: #00ff66; margin-top: 15px;">
-        <p>[ SISTEMA EN ESPERA // NINGÚN JUEGO REGISTRADO EN EL HISTORIAL RECIENTE ]</p>
-        <span style="font-size: 0.85em; opacity: 0.8;">Los títulos añadidos a la sección de ISOS aparecerán reflejados aquí.</span>
-    </div>
-</section>
+        </div>
+    </section>
 
 </body>
 </html>
