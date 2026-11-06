@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISOS_PS1 - Legacy Gaming</title>
+    <title>Legacy Gaming - Catálogo ISOS PS1</title>
     <style>
         /* ESTILOS GENERALES Y CYBERPUNK / NEÓN */
         body {
@@ -14,9 +14,9 @@
             padding: 0;
         }
 
-        /* BARRA DE NAVEGACIÓN SUPERIOR (HORIZONTAL, SIN MENÚ HAMBURGUESA) */
+        /* NAVEGACIÓN SUPERIOR UNIFICADA */
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             border-bottom: 2px solid #00ff66;
             padding: 10px 20px;
             display: flex;
@@ -41,17 +41,18 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin: 0;
             padding: 0;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
             color: #00ff66;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.95em;
-            padding: 5px 10px;
+            font-size: 0.85em;
+            padding: 5px 8px;
             border: 1px solid transparent;
             transition: 0.3s;
         }
@@ -62,153 +63,114 @@
             border-radius: 3px;
         }
 
-        /* CONTENEDOR PRINCIPAL Y HERO */
+        /* CONTENEDOR PRINCIPAL */
         main {
-            padding: 20px;
+            padding: 30px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .hero-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        /* ESTADÍSTICAS VERTICALES */
-        .stat-item {
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid #00ff66;
-            padding: 12px 18px;
-            border-radius: 4px;
-            min-width: 250px;
-        }
-
-        .stat-num {
-            font-size: 1.4em;
-            font-weight: bold;
+        .section-title {
             color: #fff;
-            display: block;
-        }
-
-        .stat-lbl {
-            font-size: 0.85em;
-            color: #00ff66;
-        }
-
-        /* SECCIÓN DE CATÁLOGO */
-        .system-section {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff66;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 1.5em;
             border-bottom: 1px solid #00ff66;
             padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .section-header h2 {
-            margin: 0;
-            font-size: 1.3em;
-            color: #fff;
+            margin-bottom: 25px;
             letter-spacing: 1px;
         }
 
-        .system-badge {
-            background: #00ff66;
-            color: #000;
-            padding: 3px 8px;
-            font-size: 0.8em;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-
-        /* GRILLA DE 5 COLUMNAS */
+        /* GRILLA DE JUEGOS (4x5) */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-top: 15px;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .game-card {
+            background: rgba(0, 0, 0, 0.65);
             border: 1px solid #00ff66;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            text-align: center;
+            padding: 12px;
             border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
         }
 
-        .game-card img {
+        .game-card:hover {
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+
+        .game-cover {
             width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-bottom: 1px solid #00ff66;
-        }
-
-        .game-card h3 {
-            color: #fff;
-            font-size: 0.9em;
-            margin: 8px 0 4px 0;
-        }
-
-        .game-card span {
+            height: 140px;
+            background: #111;
+            border: 1px dashed #00ff66;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #00ff66;
             font-size: 0.75em;
-            display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .game-card a.download-btn {
-            display: block;
-            padding: 5px 0;
-            background: #00ff66;
-            color: #000;
+        .game-title {
+            color: #fff;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-download {
+            display: inline-block;
+            width: 100%;
+            padding: 6px 0;
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid #00ff66;
+            color: #00ff66;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.8em;
+            font-size: 0.75em;
             border-radius: 3px;
+            transition: 0.3s;
+            box-sizing: border-box;
         }
 
-        .game-card a.download-btn:hover {
-            background: #fff;
+        .btn-download:hover {
+            background: #00ff66;
+            color: #000;
         }
 
-        /* BARRA DE PAGINACIÓN */
-        .pagination-bar {
+        /* PAGINACIÓN */
+        .pagination {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 10px;
-            margin: 30px 0;
+            margin-top: 30px;
         }
 
-        .pagination-bar a {
-            padding: 6px 12px;
+        .page-btn {
+            padding: 8px 15px;
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid #00ff66;
             color: #00ff66;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.85em;
             border-radius: 3px;
-            font-size: 0.9em;
+            transition: 0.3s;
         }
 
-        .pagination-bar a.active {
-            background: #00ff66;
-            color: #000;
-        }
-
-        .pagination-bar a:hover {
+        .page-btn:hover, .page-btn.active {
             background: #00ff66;
             color: #000;
         }
@@ -216,233 +178,59 @@
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <!-- NAVEGACIÓN SUPERIOR UNIFICADA -->
     <header>
         <div class="logo-container">LEGACY<span>GAMING</span></div>
         <nav>
             <ul>
-                <li><a href="#inicio">INICIO</a></li>
-                <li><a href="#isos-ps1">ISOS PS1</a></li>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="isos.html">ACCIÓN / SURVIVAL</a></li>
+                <li><a href="isos.html">RPG / AVENTURA</a></li>
+                <li><a href="isos.html">CARRERAS / FIGHTING</a></li>
+                <li><a href="isos.html">ISOS PS1</a></li>
                 <li><a href="#bios">BIOS</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- SECCIÓN DE INICIO Y ESTADÍSTICAS -->
     <main>
-        <section id="inicio" class="hero-section">
-            <div class="hero-content">
-                <!-- Espacio libre para texto de bienvenida o títulos principales si lo deseas -->
-            </div>
+        <h2 class="section-title">[ CATÁLOGO_PS1 : ARCHIVO PRINCIPAL ]</h2>
 
-            <!-- TARJETAS DE STATS (VERTICAL) -->
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <div class="stat-item">
-                    <span class="stat-num">100%</span>
-                    <span class="stat-lbl">Sin Acortadores (Directo a Mediafire)</span>
-                </div>
+        <!-- GRILLA DE JUEGOS (20 ELEMENTOS) -->
+        <section class="games-grid">
+            <!-- Repetición limpia de 20 slots de juegos -->
+            <div class="game-card"><div class="game-cover">ISO_01</div><div class="game-title">Juego Ejemplo 01</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_02</div><div class="game-title">Juego Ejemplo 02</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_03</div><div class="game-title">Juego Ejemplo 03</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_04</div><div class="game-title">Juego Ejemplo 04</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_05</div><div class="game-title">Juego Ejemplo 05</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            
+            <div class="game-card"><div class="game-cover">ISO_06</div><div class="game-title">Juego Ejemplo 06</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_07</div><div class="game-title">Juego Ejemplo 07</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_08</div><div class="game-title">Juego Ejemplo 08</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_09</div><div class="game-title">Juego Ejemplo 09</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_10</div><div class="game-title">Juego Ejemplo 10</div><a href="#" class="btn-download">DESCARGAR</a></div>
 
-                <div class="stat-item">
-                    <span class="stat-num">RETRO</span>
-                    <span class="stat-lbl">CATÁLOGO EXCLUSIVO PS1</span>
-                </div>
-            </div>
+            <div class="game-card"><div class="game-cover">ISO_11</div><div class="game-title">Juego Ejemplo 11</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_12</div><div class="game-title">Juego Ejemplo 12</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_13</div><div class="game-title">Juego Ejemplo 13</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_14</div><div class="game-title">Juego Ejemplo 14</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_15</div><div class="game-title">Juego Ejemplo 15</div><a href="#" class="btn-download">DESCARGAR</a></div>
+
+            <div class="game-card"><div class="game-cover">ISO_16</div><div class="game-title">Juego Ejemplo 16</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_17</div><div class="game-title">Juego Ejemplo 17</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_18</div><div class="game-title">Juego Ejemplo 18</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_19</div><div class="game-title">Juego Ejemplo 19</div><a href="#" class="btn-download">DESCARGAR</a></div>
+            <div class="game-card"><div class="game-cover">ISO_20</div><div class="game-title">Juego Ejemplo 20</div><a href="#" class="btn-download">DESCARGAR</a></div>
         </section>
 
-        <!-- SECCIÓN DE CATÁLOGO / ISOS PS1 (20 CASILLAS - 4 FILAS X 5 COLUMNAS) -->
-        <section id="isos-ps1" class="system-section">
-            <div class="section-header">
-                <h2>ISOS_PS1</h2>
-                <span class="system-badge">COLECCIÓN_PS1</span>
-            </div>
-
-            <div class="games-grid">
-                
-                <!-- Generador de las 20 tarjetas (Fila 1 a 4) -->
-                <!-- Puedes duplicar o cambiar los títulos de forma directa aquí -->
-                
-                <!-- TÍTULO 1 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 1</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 2 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 2</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 3 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 3</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 4 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 4</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 5 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 5</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 6 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 6</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 7 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 7</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 8 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 8</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 9 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 9</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 10 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 10</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 11 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 11</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 12 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 12</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 13 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 13</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 14 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 14</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 15 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 15</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 16 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 16</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 17 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 17</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 18 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 18</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-                <!-- TÍTULO 19 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 19</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-               <!-- TÍTULO 20 -->
-                <div class="game-card">
-                    <img src="ruta-de-tu-imagen.jpg" alt="Juego">
-                    <h3>TITULO 20</h3>
-                    <span>[ PS1 ISO ]</span>
-                    <a href="#" target="_blank" class="download-btn">DESCARGAR</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- BARRA DE PAGINACIÓN Y CASITA -->
-        <div class="pagination-bar">
-            <a href="#">&laquo; Anteriores</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">Siguientes &raquo;</a>
-            <a href="#isos-ps1" title="Volver al inicio de los ISOs">🏠</a>
-
-            <!-- NAVEGACIÓN SUPERIOR UNIFICADA -->
-    <header>
-        <div class="logo-container">LEGACY<span>GAMING</span></div>
-        <nav>
-            <ul>
-                <li><a href="isos.html">INICIO</a></li>
-                <li><a href="isos.html">ACCIÓN / SURVIVAL</a></li>
+        <!-- PAGINACIÓN -->
+        <div class="pagination">
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">SIGUIENTE &raquo;</a>
         </div>
-
     </main>
 
 </body>
