@@ -13,7 +13,7 @@
             padding: 0;
         }
 
-        /* NAVEGACIÓN SUPERIOR */
+        /* NAVEGACIÓN SUPERIOR CON MENÚ DESPLEGABLE */
         header {
             background: rgba(0, 0, 0, 0.95);
             border-bottom: 2px solid #00ff66;
@@ -43,7 +43,11 @@
             gap: 15px;
             margin: 0;
             padding: 0;
-            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav ul li {
+            position: relative; /* Permite posicionar el submenú exactamente debajo */
         }
 
         nav ul li a {
@@ -51,9 +55,10 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 0.85em;
-            padding: 5px 8px;
+            padding: 8px 12px;
             border: 1px solid transparent;
             transition: 0.3s;
+            display: block;
         }
 
         nav ul li a:hover {
@@ -62,13 +67,50 @@
             border-radius: 3px;
         }
 
+        /* SUBMENÚ DESPLEGABLE (DROPDOWN) */
+        nav ul li .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(5, 5, 5, 0.98);
+            border: 1px solid #00ff66;
+            min-width: 190px;
+            box-shadow: 0 5px 15px rgba(0, 255, 102, 0.2);
+            z-index: 1100;
+            padding: 5px 0;
+            list-style: none;
+        }
+
+        /* Mostrar el menú desplegable al pasar el cursor sobre CATEGORÍAS */
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+
+        nav ul li .dropdown-menu li {
+            width: 100%;
+        }
+
+        nav ul li .dropdown-menu li a {
+            padding: 8px 15px;
+            white-space: nowrap;
+            border: none;
+            font-size: 0.8em;
+            border-radius: 0;
+        }
+
+        nav ul li .dropdown-menu li a:hover {
+            background: #00ff66;
+            color: #000;
+        }
+
+        /* CONTENIDO PRINCIPAL */
         main {
             padding: 30px 20px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* BANNER PRINCIPAL CORREGIDO */
         .hero-banner {
             background: rgba(0, 0, 0, 0.75);
             border: 1px solid #00ff66;
@@ -83,7 +125,7 @@
             color: #fff;
             font-size: 2em;
             margin-bottom: 10px;
-            letter-spacing: 2px; /* ESPACIADO CORREGIDO PARA EVITAR LETRAS GIGANTES */
+            letter-spacing: 2px;
         }
 
         .hero-banner p {
@@ -188,13 +230,24 @@
     <header>
         <div class="logo-container">LEGACY<span>GAMING</span></div>
         <nav>
-    <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="isos.html">ISOS PS1</a></li>
-        <li><a href="emuladores.html">EMULADORES</a></li>
-        <li><a href="bios.html">BIOS</a></li>
-    </ul>
-</nav>
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                
+                <!-- MENÚ DESPLEGABLE UNIFICADO -->
+                <li>
+                    <a href="isos.html">CATEGORÍAS ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="isos.html">ACCIÓN / SURVIVAL</a></li>
+                        <li><a href="isos.html">RPG / AVENTURA</a></li>
+                        <li><a href="isos.html">CARRERAS / FIGHTING</a></li>
+                        <li><a href="isos.html">TODAS LAS ISOS</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="emuladores.html">EMULADORES</a></li>
+                <li><a href="bios.html">BIOS</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
