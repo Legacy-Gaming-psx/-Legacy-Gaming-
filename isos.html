@@ -5,31 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legacy Gaming - Catálogo ISOS PS1</title>
     <style>
-      /* ========================================== */
-/* ESTILOS: GRID CYBERPUNK DE ISOs            */
-/* ========================================== */
-
-.isos-catalog-section {
-  width: 100%;
-  padding: 20px 0;
+     /* Estilo para corregir el menú de navegación lateral/superior */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.iso-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 25px;
+/* Color y estilo de los enlaces del menú para que no se vean morados por defecto */
+nav a, .menu a {
+  color: #00ff66;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.iso-card {
-  background: #111116;
-  border: 1px solid #00ff66;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+nav a:hover, .menu a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #00ff66;
 }
-
 .iso-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
