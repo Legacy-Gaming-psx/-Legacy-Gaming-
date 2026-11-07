@@ -1,224 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Gaming - Catálogo ISOS PS1</title>
-    <style>
-    /* ========================================== */
-/* ESTILOS DE LA CABECERA Y MENÚ DE NAVEGACIÓN */
-/* ========================================== */
-
-.main-header {
-  width: 100%;
-  background-color: #0d0d11; /* Fondo oscuro cyberpunk */
-  border-bottom: 1px solid #00ff66;
-  padding: 15px 30px;
-  box-sizing: border-box;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.logo a {
-  color: #ffffff;
-  font-size: 1.3rem;
-  font-weight: 900;
-  text-decoration: none;
-  letter-spacing: 2px;
-}
-
-.nav-menu ul {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-
-.nav-menu a {
-  color: #00ff66;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-.nav-menu a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 8px #00ff66;
-}
-
-/* Submenú desplegable simple para Categorías */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #111116;
-  border: 1px solid #00ff66;
-  min-width: 180px;
-  flex-direction: column !important;
-  gap: 0 !important;
-  padding: 10px 0 !important;
-  z-index: 100;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.dropdown-content li {
-  padding: 8px 15px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy Gaming - Catálogo de ISOs PS1</title>
+  <link rel="stylesheet" href="estilos.css"> <!-- Asegúrate de que el nombre de tu archivo CSS coincide aquí -->
 </head>
 <body>
 
-    <!-- NAVEGACIÓN SUPERIOR UNIFICADA -->
-    <header>
-    <div class="logo-container">LEGACY<span>GAMING</span></div>
-    <nav>
+  <!-- ========================================== -->
+  <!-- CABECERA PRINCIPAL Y NAVEGACIÓN          -->
+  <!-- ========================================== -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">LEGACYGAMING</a>
+      </div>
+      <nav class="nav-menu">
         <ul>
-            <li><a href="index.html">INICIO</a></li>
-            
-            <!-- Cabecera y Menú de Navegación Principal -->
-<header class="main-header">
-  <div class="nav-container">
-    <div class="logo">
-      <a href="index.html">LEGACYGAMING</a>
+          <li><a href="index.html">INICIO</a></li>
+          <li class="dropdown">
+            <a href="#">CATEGORÍAS ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="#">ACCIÓN / SURVIVAL</a></li>
+              <li><a href="#">RPG / AVENTURA</a></li>
+              <li><a href="#">CARRERAS / FIGHTING</a></li>
+              <li><a href="isos.html">TODAS LAS ISOS</a></li>
+            </ul>
+          </li>
+          <li><a href="#">EMULADORES</a></li>
+          <li><a href="#">BIOS</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li class="dropdown">
-          <a href="#">CATEGORÍAS ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="#">ACCIÓN / SURVIVAL</a></li>
-            <li><a href="#">RPG / AVENTURA</a></li>
-            <li><a href="#">CARRERAS / FIGHTING</a></li>
-            <li><a href="#">TODAS LAS ISOS</a></li>
-          </ul>
-        </li>
-        <li><a href="#">EMULADORES</a></li>
-        <li><a href="#">BIOS</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
-    <main>
-        <h2 class="section-title">[ CATÁLOGO_PS1 : ARCHIVO PRINCIPAL ]</h2>
-
-        <!-- ========================================== -->
-<!-- SECCIÓN: CATÁLOGO DE ISOs (LEGACY GAMING)   -->
-<!-- ========================================== -->
-<section class="isos-catalog-section">
-  
-  <div class="iso-grid">
-
-    <!-- Tarjeta 1: Resident Evil Survivor -->
-    <div class="iso-card">
-      <div class="card-image-container">
-        <img src="https://i.pinimg.com/736x/6e/72/0d/6e720d19576d2b3ee93e1c7063d0f704.jpg" alt="Resident Evil Survivor PS1" class="iso-cover">
-      </div>
-      <div class="card-content">
-        <h3 class="game-title">Resident Evil Survivor</h3>
-        <div class="language-tags">
-          <span class="tag lang-es">Español</span>
-          <span class="tag lang-en">Inglés</span>
-        </div>
-        <p class="game-desc">Perspectiva en primera persona en la isla Sheena. Survival horror clásico con disparo directo.</p>
-        <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
-      </div>
+  <!-- ========================================== -->
+  <!-- CONTENIDO PRINCIPAL: CATÁLOGO DE ISOs      -->
+  <!-- ========================================== -->
+  <main class="main-content">
+    
+    <div class="section-title">
+      <h2>[ CATÁLOGO_PS1 : ARCHIVO PRINCIPAL ]</h2>
     </div>
 
-    <!-- Tarjeta 2: Resident Evil 1.5 (Biohazard Prototype) -->
-    <div class="iso-card">
-      <div class="card-image-container">
-        <img src="https://static.wikia.nocookie.net/residentevil/images/b/b6/Biohazard_1.5_Cover.jpg" alt="Resident Evil 1.5 Biohazard Prototype" class="iso-cover">
-      </div>
-      <div class="card-content">
-        <h3 class="game-title">Resident Evil 1.5 (Biohazard)</h3>
-        <div class="language-tags">
-          <span class="tag lang-es">Español</span>
-          <span class="tag lang-en">Inglés</span>
-        </div>
-        <p class="game-desc">El prototipo cancelado no oficial con Elza Walker y León S. Kennedy en la comisaría RPD original.</p>
-        <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
-      </div>
-    </div>
+    <section class="isos-catalog-section">
+      <div class="iso-grid">
 
-    <!-- Tarjeta 3: Resident Evil 2 (Disco León) -->
-    <div class="iso-card">
-      <div class="card-image-container">
-        <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Leon" class="iso-cover">
-      </div>
-      <div class="card-content">
-        <h3 class="game-title">Resident Evil 2 (Disco León)</h3>
-        <div class="language-tags">
-          <span class="tag lang-es">Español</span>
-          <span class="tag lang-en">Inglés</span>
+        <!-- Tarjeta 1: Resident Evil Survivor -->
+        <div class="iso-card">
+          <div class="card-image-container">
+            <img src="https://i.pinimg.com/736x/6e/72/0d/6e720d19576d2b3ee93e1c7063d0f704.jpg" alt="Resident Evil Survivor PS1" class="iso-cover">
+          </div>
+          <div class="card-content">
+            <h3 class="game-title">Resident Evil Survivor</h3>
+            <div class="language-tags">
+              <span class="tag lang-es">Español</span>
+              <span class="tag lang-en">Inglés</span>
+            </div>
+            <p class="game-desc">Perspectiva en primera persona en la isla Sheena. Survival horror clásico con disparo directo.</p>
+            <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+          </div>
         </div>
-        <p class="game-desc">Escenario A/B con León S. Kennedy abriéndose paso en Raccoon City infestada.</p>
-        <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
-      </div>
-    </div>
 
-    <!-- Tarjeta 4: Resident Evil 2 (Disco Claire) -->
-    <div class="iso-card">
-      <div class="card-image-container">
-        <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Claire" class="iso-cover">
-      </div>
-      <div class="card-content">
-        <h3 class="game-title">Resident Evil 2 (Disco Claire)</h3>
-        <div class="language-tags">
-          <span class="tag lang-es">Español</span>
-          <span class="tag lang-en">Inglés</span>
+        <!-- Tarjeta 2: Resident Evil 1.5 (Biohazard Prototype) -->
+        <div class="iso-card">
+          <div class="card-image-container">
+            <img src="https://static.wikia.nocookie.net/residentevil/images/b/b6/Biohazard_1.5_Cover.jpg" alt="Resident Evil 1.5 Biohazard Prototype" class="iso-cover">
+          </div>
+          <div class="card-content">
+            <h3 class="game-title">Resident Evil 1.5 (Biohazard)</h3>
+            <div class="language-tags">
+              <span class="tag lang-es">Español</span>
+              <span class="tag lang-en">Inglés</span>
+            </div>
+            <p class="game-desc">El prototipo cancelado no oficial con Elza Walker y León S. Kennedy en la comisaría RPD original.</p>
+            <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+          </div>
         </div>
-        <p class="game-desc">Escenario A/B con Claire Redfield buscando a su hermano Chris en medio del brote biológico.</p>
-        <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
-      </div>
-    </div>
 
-    <!-- Tarjeta 5: Resident Evil 3: Nemesis -->
-    <div class="iso-card">
-      <div class="card-image-container">
-        <img src="https://phantom-marca.unidadeditorial.es/c6254c8db334703d1d9e9e9ffdb97c34/resize/640/assets/multimedia/imagenes/2021/03/22/16164105658959.jpg" alt="Resident Evil 3 Nemesis PS1" class="iso-cover">
-      </div>
-      <div class="card-content">
-        <h3 class="game-title">Resident Evil 3: Nemesis</h3>
-        <div class="language-tags">
-          <span class="tag lang-es">Español</span>
-          <span class="tag lang-en">Inglés</span>
+        <!-- Tarjeta 3: Resident Evil 2 (Disco León) -->
+        <div class="iso-card">
+          <div class="card-image-container">
+            <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Leon" class="iso-cover">
+          </div>
+          <div class="card-content">
+            <h3 class="game-title">Resident Evil 2 (Disco León)</h3>
+            <div class="language-tags">
+              <span class="tag lang-es">Español</span>
+              <span class="tag lang-en">Inglés</span>
+            </div>
+            <p class="game-desc">Escenario A/B con León S. Kennedy abriéndose paso en Raccoon City infestada.</p>
+            <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+          </div>
         </div>
-        <p class="game-desc">Jill Valentine intenta escapar de Raccoon City mientras es acechada por la bioarma Nemesis.</p>
-        <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
-      </div>
-    </div>
 
-  </div>
-</section>
-
-        <!-- PAGINACIÓN -->
-        <div class="pagination">
-            <a href="#" class="page-btn active">1</a>
-            <a href="#" class="page-btn">2</a>
-            <a href="#" class="page-btn">3</a>
-            <a href="#" class="page-btn">SIGUIENTE &raquo;</a>
+        <!-- Tarjeta 4: Resident Evil 2 (Disco Claire) -->
+        <div class="iso-card">
+          <div class="card-image-container">
+            <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Claire" class="iso-cover">
+          </div>
+          <div class="card-content">
+            <h3 class="game-title">Resident Evil 2 (Disco Claire)</h3>
+            <div class="language-tags">
+              <span class="tag lang-es">Español</span>
+              <span class="tag lang-en">Inglés</span>
+            </div>
+            <p class="game-desc">Escenario A/B con Claire Redfield buscando a su hermano Chris en medio del brote biológico.</p>
+            <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+          </div>
         </div>
-    </main>
+
+        <!-- Tarjeta 5: Resident Evil 3: Nemesis -->
+        <div class="iso-card">
+          <div class="card-image-container">
+            <img src="https://phantom-marca.unidadeditorial.es/c6254c8db334703d1d9e9e9ffdb97c34/resize/640/assets/multimedia/imagenes/2021/03/22/16164105658959.jpg" alt="Resident Evil 3 Nemesis PS1" class="iso-cover">
+          </div>
+          <div class="card-content">
+            <h3 class="game-title">Resident Evil 3: Nemesis</h3>
+            <div class="language-tags">
+              <span class="tag lang-es">Español</span>
+              <span class="tag lang-en">Inglés</span>
+            </div>
+            <p class="game-desc">Jill Valentine intenta escapar de Raccoon City mientras es acechada por la bioarma Nemesis.</p>
+            <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
