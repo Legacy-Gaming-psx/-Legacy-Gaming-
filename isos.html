@@ -5,175 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legacy Gaming - Catálogo ISOS PS1</title>
     <style>
-        /* ESTILOS GENERALES Y CYBERPUNK / NEÓN */
-        body {
-            background-color: #050505;
-            color: #00ff66;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-        }
+       /* Grid Cyberpunk de ISOs */
+.iso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
 
-        /* NAVEGACIÓN SUPERIOR UNIFICADA */
-        header {
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 2px solid #00ff66;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.iso-card {
+  background: #111116;
+  border: 1px solid #00ff66;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .logo-container {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #fff;
-            letter-spacing: 2px;
-        }
+.iso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+}
 
-        .logo-container span {
-            color: #00ff66;
-        }
+.card-image-container {
+  width: 100%;
+  height: 280px;
+  background-color: #050505;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
+.iso-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
 
-        nav ul li a {
-            color: #00ff66;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85em;
-            padding: 5px 8px;
-            border: 1px solid transparent;
-            transition: 0.3s;
-        }
+.iso-card:hover .iso-cover {
+  transform: scale(1.03);
+}
 
-        nav ul li a:hover {
-            border: 1px solid #00ff66;
-            background: rgba(0, 255, 102, 0.1);
-            border-radius: 3px;
-        }
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-        /* CONTENEDOR PRINCIPAL */
-        main {
-            padding: 30px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.game-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
 
-        .section-title {
-            color: #fff;
-            font-size: 1.5em;
-            border-bottom: 1px solid #00ff66;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
+.language-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
 
-        /* GRILLA DE JUEGOS (4x5) */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+.tag {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-        @media (max-width: 900px) {
-            .games-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+.lang-es {
+  background-color: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  border: 1px solid #00ff66;
+}
 
-        .game-card {
-            background: rgba(0, 0, 0, 0.65);
-            border: 1px solid #00ff66;
-            padding: 12px;
-            border-radius: 5px;
-            text-align: center;
-            transition: 0.3s;
-        }
+.lang-en {
+  background-color: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+}
 
-        .game-card:hover {
-            border-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
-        }
+.game-desc {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
 
-        .game-cover {
-            width: 100%;
-            height: 140px;
-            background: #111;
-            border: 1px dashed #00ff66;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00ff66;
-            font-size: 0.75em;
-            margin-bottom: 10px;
-        }
+.download-btn {
+  display: block;
+  text-align: center;
+  background-color: #00ff66;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 
-        .game-title {
-            color: #fff;
-            font-size: 0.85em;
-            margin-bottom: 10px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .btn-download {
-            display: inline-block;
-            width: 100%;
-            padding: 6px 0;
-            background: rgba(0, 255, 102, 0.1);
-            border: 1px solid #00ff66;
-            color: #00ff66;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.75em;
-            border-radius: 3px;
-            transition: 0.3s;
-            box-sizing: border-box;
-        }
-
-        .btn-download:hover {
-            background: #00ff66;
-            color: #000;
-        }
-
-        /* PAGINACIÓN */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .page-btn {
-            padding: 8px 15px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff66;
-            color: #00ff66;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85em;
-            border-radius: 3px;
-            transition: 0.3s;
-        }
-
-        .page-btn:hover, .page-btn.active {
-            background: #00ff66;
-            color: #000;
-        }
+.download-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 10px #ffffff;
+}
     </style>
 </head>
 <body>
@@ -205,32 +143,90 @@
     <main>
         <h2 class="section-title">[ CATÁLOGO_PS1 : ARCHIVO PRINCIPAL ]</h2>
 
-        <!-- GRILLA DE JUEGOS (20 ELEMENTOS) -->
-        <section class="games-grid">
-            <!-- Repetición limpia de 20 slots de juegos -->
-            <div class="game-card"><div class="game-cover">ISO_01</div><div class="game-title">Juego Ejemplo 01</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_02</div><div class="game-title">Juego Ejemplo 02</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_03</div><div class="game-title">Juego Ejemplo 03</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_04</div><div class="game-title">Juego Ejemplo 04</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_05</div><div class="game-title">Juego Ejemplo 05</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            
-            <div class="game-card"><div class="game-cover">ISO_06</div><div class="game-title">Juego Ejemplo 06</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_07</div><div class="game-title">Juego Ejemplo 07</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_08</div><div class="game-title">Juego Ejemplo 08</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_09</div><div class="game-title">Juego Ejemplo 09</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_10</div><div class="game-title">Juego Ejemplo 10</div><a href="#" class="btn-download">DESCARGAR</a></div>
+        <!-- Grid de Catálogo de ISOs -->
+<div class="iso-grid">
 
-            <div class="game-card"><div class="game-cover">ISO_11</div><div class="game-title">Juego Ejemplo 11</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_12</div><div class="game-title">Juego Ejemplo 12</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_13</div><div class="game-title">Juego Ejemplo 13</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_14</div><div class="game-title">Juego Ejemplo 14</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_15</div><div class="game-title">Juego Ejemplo 15</div><a href="#" class="btn-download">DESCARGAR</a></div>
+  <!-- Tarjeta 1: Resident Evil Survivor -->
+  <div class="iso-card">
+    <div class="card-image-container">
+      <img src="https://i.pinimg.com/736x/6e/72/0d/6e720d19576d2b3ee93e1c7063d0f704.jpg" alt="Resident Evil Survivor PS1" class="iso-cover">
+    </div>
+    <div class="card-content">
+      <h3 class="game-title">Resident Evil Survivor</h3>
+      <div class="language-tags">
+        <span class="tag lang-es">Español</span>
+        <span class="tag lang-en">Inglés</span>
+      </div>
+      <p class="game-desc">Perspectiva en primera persona en la isla Sheena. Survival horror clásico con disparo directo.</p>
+      <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+    </div>
+  </div>
 
-            <div class="game-card"><div class="game-cover">ISO_16</div><div class="game-title">Juego Ejemplo 16</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_17</div><div class="game-title">Juego Ejemplo 17</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_18</div><div class="game-title">Juego Ejemplo 18</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_19</div><div class="game-title">Juego Ejemplo 19</div><a href="#" class="btn-download">DESCARGAR</a></div>
-            <div class="game-card"><div class="game-cover">ISO_20</div><div class="game-title">Juego Ejemplo 20</div><a href="#" class="btn-download">DESCARGAR</a></div>
+  <!-- Tarjeta 2: Resident Evil 1.5 (Biohazard Prototype) -->
+  <div class="iso-card">
+    <div class="card-image-container">
+      <img src="RE1_5_Biohazard_Cover.jpg" alt="Resident Evil 1.5 Biohazard Prototype" class="iso-cover">
+    </div>
+    <div class="card-content">
+      <h3 class="game-title">Resident Evil 1.5 (Biohazard)</h3>
+      <div class="language-tags">
+        <span class="tag lang-es">Español</span>
+        <span class="tag lang-en">Inglés</span>
+      </div>
+      <p class="game-desc">El prototipo cancelado no oficial con Elza Walker y León S. Kennedy en la comisaría RPD original.</p>
+      <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+    </div>
+  </div>
+
+  <!-- Tarjeta 3: Resident Evil 2 (Disco León) -->
+  <div class="iso-card">
+    <div class="card-image-container">
+      <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Leon" class="iso-cover">
+    </div>
+    <div class="card-content">
+      <h3 class="game-title">Resident Evil 2 (Disco León)</h3>
+      <div class="language-tags">
+        <span class="tag lang-es">Español</span>
+        <span class="tag lang-en">Inglés</span>
+      </div>
+      <p class="game-desc">Escenario A/B con León S. Kennedy abriéndose paso en Raccoon City infestada.</p>
+      <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+    </div>
+  </div>
+
+  <!-- Tarjeta 4: Resident Evil 2 (Disco Claire) -->
+  <div class="iso-card">
+    <div class="card-image-container">
+      <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Claire" class="iso-cover">
+    </div>
+    <div class="card-content">
+      <h3 class="game-title">Resident Evil 2 (Disco Claire)</h3>
+      <div class="language-tags">
+        <span class="tag lang-es">Español</span>
+        <span class="tag lang-en">Inglés</span>
+      </div>
+      <p class="game-desc">Escenario A/B con Claire Redfield buscando a su hermano Chris en medio del brote biológico.</p>
+      <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+    </div>
+  </div>
+
+  <!-- Tarjeta 5: Resident Evil 3: Nemesis -->
+  <div class="iso-card">
+    <div class="card-image-container">
+      <img src="https://phantom-marca.unidadeditorial.es/c6254c8db334703d1d9e9e9ffdb97c34/resize/640/assets/multimedia/imagenes/2021/03/22/16164105658959.jpg" alt="Resident Evil 3 Nemesis PS1" class="iso-cover">
+    </div>
+    <div class="card-content">
+      <h3 class="game-title">Resident Evil 3: Nemesis</h3>
+      <div class="language-tags">
+        <span class="tag lang-es">Español</span>
+        <span class="tag lang-en">Inglés</span>
+      </div>
+      <p class="game-desc">Jill Valentine intenta escapar de Raccoon City mientras es acechada por la bioarma Nemesis.</p>
+      <a href="TU_ENLACE_MEDIAFIRE_AQUI" target="_blank" class="download-btn">Descargar ISO</a>
+    </div>
+  </div>
+
+</div>
         </section>
 
         <!-- PAGINACIÓN -->
