@@ -4,13 +4,191 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legacy Gaming - Catálogo de ISOs PS1</title>
-  <link rel="stylesheet" href="estilos.css"> <!-- Asegúrate de que el nombre de tu archivo CSS coincide aquí -->
+  
+  <!-- ESTILOS CSS INTEGRADOS PARA QUE TODO FUNCIONE EN UN SOLO LUGAR -->
+  <style>
+    /* Estilos generales del cuerpo */
+    body {
+      background-color: #0b0b0f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Cabecera y menú horizontal */
+    .main-header {
+      width: 100%;
+      background-color: #0d0d11;
+      border-bottom: 1px solid #00ff66;
+      padding: 15px 30px;
+      box-sizing: border-box;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo a {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: #00ff66;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .nav-menu a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 8px #00ff66;
+    }
+
+    /* Título de sección */
+    .section-title {
+      text-align: center;
+      margin: 30px 0 20px 0;
+      color: #00ff66;
+      letter-spacing: 1px;
+    }
+
+    /* Catálogo Grid */
+    .isos-catalog-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .iso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    /* Tarjetas de juegos */
+    .iso-card {
+      background: #111116;
+      border: 1px solid #00ff66;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .iso-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    }
+
+    /* Contenedor y control estricto de tamaño de imagen */
+    .card-image-container {
+      width: 100%;
+      height: 280px; /* Altura fija para evitar que se expanda de más */
+      background-color: #050505;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+    }
+
+    .iso-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ajusta la carátula sin deformarla */
+      transition: transform 0.3s ease;
+    }
+
+    .iso-card:hover .iso-cover {
+      transform: scale(1.03);
+    }
+
+    .card-content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .game-title {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+    }
+
+    .language-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .lang-es {
+      background-color: rgba(0, 255, 102, 0.15);
+      color: #00ff66;
+      border: 1px solid #00ff66;
+    }
+
+    .lang-en {
+      background-color: rgba(0, 229, 255, 0.15);
+      color: #00e5ff;
+      border: 1px solid #00e5ff;
+    }
+
+    .game-desc {
+      color: #a0a0a0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .download-btn {
+      display: block;
+      text-align: center;
+      background-color: #00ff66;
+      color: #000000;
+      text-decoration: none;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 0 0 10px #ffffff;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ========================================== -->
-  <!-- CABECERA PRINCIPAL Y NAVEGACIÓN          -->
-  <!-- ========================================== -->
+  <!-- CABECERA Y MENÚ -->
   <header class="main-header">
     <div class="nav-container">
       <div class="logo">
@@ -19,15 +197,7 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="index.html">INICIO</a></li>
-          <li class="dropdown">
-            <a href="#">CATEGORÍAS ▾</a>
-            <ul class="dropdown-content">
-              <li><a href="#">ACCIÓN / SURVIVAL</a></li>
-              <li><a href="#">RPG / AVENTURA</a></li>
-              <li><a href="#">CARRERAS / FIGHTING</a></li>
-              <li><a href="isos.html">TODAS LAS ISOS</a></li>
-            </ul>
-          </li>
+          <li><a href="#">CATEGORÍAS ▾</a></li>
           <li><a href="#">EMULADORES</a></li>
           <li><a href="#">BIOS</a></li>
         </ul>
@@ -35,11 +205,8 @@
     </div>
   </header>
 
-  <!-- ========================================== -->
-  <!-- CONTENIDO PRINCIPAL: CATÁLOGO DE ISOs      -->
-  <!-- ========================================== -->
+  <!-- CONTENIDO: CATÁLOGO DE ISOs -->
   <main class="main-content">
-    
     <div class="section-title">
       <h2>[ CATÁLOGO_PS1 : ARCHIVO PRINCIPAL ]</h2>
     </div>
@@ -63,10 +230,10 @@
           </div>
         </div>
 
-        <!-- Tarjeta 2: Resident Evil 1.5 (Biohazard Prototype) -->
+        <!-- Tarjeta 2: Resident Evil 1.5 -->
         <div class="iso-card">
           <div class="card-image-container">
-            <img src="https://static.wikia.nocookie.net/residentevil/images/b/b6/Biohazard_1.5_Cover.jpg" alt="Resident Evil 1.5 Biohazard Prototype" class="iso-cover">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_oivPCSlv7Nfw29rpBTVxtSZY6jMEavxlsxH-x_8NHQ&s=10" alt="Resident Evil 1.5" class="iso-cover">
           </div>
           <div class="card-content">
             <h3 class="game-title">Resident Evil 1.5 (Biohazard)</h3>
@@ -79,7 +246,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 3: Resident Evil 2 (Disco León) -->
+        <!-- Tarjeta 3: Resident Evil 2 (León) -->
         <div class="iso-card">
           <div class="card-image-container">
             <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Leon" class="iso-cover">
@@ -95,7 +262,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 4: Resident Evil 2 (Disco Claire) -->
+        <!-- Tarjeta 4: Resident Evil 2 (Claire) -->
         <div class="iso-card">
           <div class="card-image-container">
             <img src="https://i.pinimg.com/736x/5e/0b/ce/5e0bcefc69310da1bc8a253ca9a00854.jpg" alt="Resident Evil 2 Disco Claire" class="iso-cover">
@@ -111,10 +278,10 @@
           </div>
         </div>
 
-        <!-- Tarjeta 5: Resident Evil 3: Nemesis -->
+        <!-- Tarjeta 5: Resident Evil 3 -->
         <div class="iso-card">
           <div class="card-image-container">
-            <img src="https://phantom-marca.unidadeditorial.es/c6254c8db334703d1d9e9e9ffdb97c34/resize/640/assets/multimedia/imagenes/2021/03/22/16164105658959.jpg" alt="Resident Evil 3 Nemesis PS1" class="iso-cover">
+            <img src="https://phantom-marca.unidadeditorial.es/c6254c8db334703d1d9e9e9ffdb97c34/resize/640/assets/multimedia/imagenes/2021/03/22/16164105658959.jpg" alt="Resident Evil 3 Nemesis" class="iso-cover">
           </div>
           <div class="card-content">
             <h3 class="game-title">Resident Evil 3: Nemesis</h3>
